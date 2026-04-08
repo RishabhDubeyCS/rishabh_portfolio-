@@ -1,6 +1,80 @@
 import React from "react";
 import Link from "next/link";
-import { projects } from "@/lib/projects-data";
+
+const projects = [
+  {
+    title: "E-Commerce Platform",
+    description: "Full-stack Next.js commerce solution with Stripe integration.",
+    slug: "e-commerce-platform",
+    tag: "Full Stack",
+    tech: ["Next.js", "Node.js", "MongoDB", "Stripe"],
+    content: "E-commerce app with cart, auth, and payment integration.",
+  },
+  {
+    title: "AI Image Generator",
+    description: "Generate high-quality images using OpenAI API.",
+    slug: "ai-image-generator",
+    tag: "AI",
+    tech: ["React", "OpenAI API", "Node.js"],
+    content: "AI-based image generator using prompt inputs.",
+  },
+  {
+    title: "Portfolio Website",
+    description: "Modern animated portfolio using Framer Motion.",
+    slug: "portfolio-website",
+    tag: "Frontend",
+    tech: ["Next.js", "Tailwind", "Framer Motion"],
+    content: "Personal portfolio with animations and modern UI.",
+  },
+  {
+    title: "Real-time Chat App",
+    description: "Chat application using Socket.io and Redis.",
+    slug: "chat-app",
+    tag: "Realtime",
+    tech: ["Node.js", "Socket.io", "Redis"],
+    content: "Real-time messaging with instant updates.",
+  },
+  {
+    title: "SaaS Dashboard",
+    description: "Analytics dashboard with authentication & payments.",
+    slug: "saas-dashboard",
+    tag: "SaaS",
+    tech: ["Next.js", "Stripe", "PostgreSQL"],
+    content: "SaaS dashboard with analytics and billing.",
+  },
+  {
+    title: "Task Manager API",
+    description: "REST API built with Node.js and MongoDB.",
+    slug: "task-manager",
+    tag: "Backend",
+    tech: ["Node.js", "Express", "MongoDB"],
+    content: "Task management backend API.",
+  },
+  {
+    title: "Social Media App",
+    description: "Full-stack app with posts, likes, and comments.",
+    slug: "social-app",
+    tag: "Full Stack",
+    tech: ["React", "Node.js", "MongoDB"],
+    content: "Social platform with user interaction features.",
+  },
+  {
+    title: "Dev Portfolio Builder",
+    description: "Tool to generate developer portfolios dynamically.",
+    slug: "portfolio-builder",
+    tag: "Tool",
+    tech: ["Next.js", "Tailwind", "AI"],
+    content: "Auto-generate developer portfolios.",
+  },
+  {
+    title: "Blog Platform",
+    description: "Markdown-based blogging system with CMS.",
+    slug: "blog-platform",
+    tag: "CMS",
+    tech: ["Next.js", "Markdown", "CMS"],
+    content: "Blog platform with markdown support.",
+  },
+];
 
 export default function ProjectsPage() {
   return (
@@ -10,7 +84,7 @@ export default function ProjectsPage() {
         {/* Heading */}
         <div className="mb-14">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
-            My Projects 🚀
+            My Projects 
           </h1>
           <p className="text-lg text-neutral-400 max-w-2xl">
             A collection of real-world applications showcasing full-stack development,
