@@ -23,7 +23,9 @@ export default function WorldMap({
   const { theme } = useTheme();
 
   useEffect(() => {
-    setMounted(true);
+    requestAnimationFrame(() => {
+      setMounted(true);
+    });
   }, []);
 
   const map = new DottedMap({ height: 100, grid: "diagonal" });

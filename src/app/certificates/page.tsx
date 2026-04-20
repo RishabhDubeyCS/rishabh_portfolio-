@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ExternalLink, Award, ShieldCheck, Zap, Globe, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -180,10 +181,6 @@ export default function CertificatesPage() {
         </motion.div>
 
       </div>
-    </main>
-  );
-}
->
     </main>
   );
 }

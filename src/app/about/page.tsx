@@ -7,7 +7,6 @@ import {
   Cpu, 
   Layers, 
   Sparkles,
-  ExternalLink,
   ChevronRight
 } from "lucide-react";
 
@@ -65,8 +64,8 @@ export default function AboutPage() {
             <h3 className="text-cyan-300 font-bold text-xl mb-2">The Spark (2023)</h3>
             <p className="text-neutral-400 leading-relaxed">
               My journey began when I joined <span className="text-white font-medium">SAGE University, Bhopal</span> for my B.Tech in CSE. 
-              Like many, I started with curiosity about how the internet works. What began as writing simple "Hello World" 
-              programs in C and Java quickly evolved into a fascination with the web's infinite possibilities.
+              Like many, I started with curiosity about how the internet works. What began as writing simple &quot;Hello World&quot; 
+              programs in C and Java quickly evolved into a fascination with the web&apos;s infinite possibilities.
             </p>
           </div>
 
@@ -267,5 +266,4 @@ function BentoSkillCard({
       </div>
     </div>
   );
-}
 }

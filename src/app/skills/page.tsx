@@ -10,7 +10,6 @@ import {
   Database, 
   ShieldCheck, 
   Zap, 
-  CheckCircle2,
   Search,
   ArrowUpRight
 } from "lucide-react";

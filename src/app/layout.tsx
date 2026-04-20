@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { ReactLenis } from "lenis/react";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -38,9 +39,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
-          <Footer />
+          <ReactLenis root>
+            <Navbar />
+            {children}
+            <Footer />
+          </ReactLenis>
         </ThemeProvider>
       </body>
     </html>

@@ -38,7 +38,6 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              scroll={false}
               className="rounded-full px-4 py-2 text-sm font-medium text-black/70 dark:text-white/70 transition hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white"
             >
               {item.label}
@@ -53,7 +52,7 @@ export function Navbar() {
             size="sm"
             className="hidden rounded-full bg-cyan-500 dark:bg-cyan-300 px-4 text-white dark:text-black hover:bg-cyan-600 dark:hover:bg-cyan-200 sm:inline-flex"
           >
-            <Link href="/#contact" scroll={false}>
+            <Link href="/#contact">
               Hire Me
             </Link>
           </Button>
@@ -77,7 +76,6 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                scroll={false}
                 onClick={closeMenu}
                 className="rounded-2xl border border-black/10 dark:border-white/8 bg-black/[0.03] dark:bg-white/[0.03] px-4 py-3 text-sm font-medium text-black/80 dark:text-white/80 transition hover:border-cyan-500/30 dark:hover:border-cyan-300/30 hover:bg-cyan-500/8 dark:hover:bg-cyan-300/8 hover:text-black dark:hover:text-white"
               >
@@ -90,7 +88,7 @@ export function Navbar() {
               size="sm"
               className="mt-2 h-11 rounded-2xl bg-cyan-500 dark:bg-cyan-300 text-white dark:text-black hover:bg-cyan-600 dark:hover:bg-cyan-200"
             >
-              <Link href="/#contact" scroll={false} onClick={closeMenu}>
+              <Link href="/#contact" onClick={closeMenu}>
                 Hire Me
               </Link>
             </Button>
