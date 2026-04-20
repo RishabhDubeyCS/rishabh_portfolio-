@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Spotlight } from "@/components/ui/spotlight";
+import { Download } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -33,7 +34,7 @@ export default function Hero() {
 
         {/* Subheading */}
        <h2 className="mt-4 text-lg md:text-2xl text-neutral-300 font-medium">
-          Full Stack Developer  AI-Driven Applications
+          Full Stack Developer & AI-Driven Applications
        </h2>
 
         {/* Description */}
@@ -58,6 +59,15 @@ export default function Hero() {
           >
             Contact Me
           </Link>
+
+          <a
+            href="/resume.pdf"
+            download="Rishabh_Dubey_Resume.pdf"
+            className="flex items-center justify-center gap-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 px-8 py-3 text-sm font-semibold text-cyan-400 hover:bg-cyan-500/20 transition-all transform hover:scale-105"
+          >
+            <Download className="size-4" />
+            Resume
+          </a>
         </div>
       </div>
     </section>

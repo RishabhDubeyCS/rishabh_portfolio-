@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 
@@ -47,6 +47,20 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <ModeToggle />
+          
+          {/* Resume Button (Desktop) */}
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="hidden lg:flex items-center gap-2 rounded-full border-cyan-500/30 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-500/10"
+          >
+            <a href="/resume.pdf" download="Rishabh_Dubey_Resume.pdf">
+              <Download className="size-4" />
+              <span>Resume</span>
+            </a>
+          </Button>
+
           <Button
             asChild
             size="sm"
@@ -82,6 +96,18 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
+
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="mt-2 h-11 rounded-2xl border-cyan-500/30 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-500/10 flex items-center gap-2"
+            >
+              <a href="/resume.pdf" download="Rishabh_Dubey_Resume.pdf" onClick={closeMenu}>
+                <Download className="size-4" />
+                <span>Download Resume</span>
+              </a>
+            </Button>
 
             <Button
               asChild
