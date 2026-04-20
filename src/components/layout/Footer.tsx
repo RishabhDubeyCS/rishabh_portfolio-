@@ -1,189 +1,124 @@
-'use client';
-import React, { FormEvent, useRef, useState } from 'react';
-import { motion, useInView } from 'motion/react';
-import Link from 'next/link';
+                                                                                                                                                                         
+  import Link from "next/link";                                                                                                                                            
+  import { ArrowUpRight, Globe, Mail } from "lucide-react";                                                                                                                
+  import { Button } from "@/components/ui/button";                                                                                                                         
+  import {                                                                                                                                                                 
+    Card,                                                                                                                                                                  
+    CardContent,                                                                                                                                                           
+    CardDescription,                                                                                                                                                       
+    CardFooter,                                                                                                                                                            
+    CardHeader,                                                                                                                                                            
+    CardTitle,                                                                                                                                                             
+  } from "@/components/ui/card";                                                                                                                                           
+                                                                                                                                                                           
+  const quickLinks = [                                                                                                                                                     
+    { href: "/#home", label: "Home" },                                                                                                                                     
+    { href: "/#projects", label: "Projects" },                                                                                                                             
+    { href: "/#about", label: "About" },                                                                                                                                   
+    { href: "/#contact", label: "Contact" },                                                                                                                               
+  ];                                                                                                                                                                       
+                                                                                                                                                                           
+  const socialLinks = [                                                                                                                                                    
+    {                                                                                                                                                                      
+      href: "mailto:rishabhdubeycse@gmail.com",                                                                                                                                  
+      label: "Email",                                                                                                                                                      
+      icon: Mail,                                                                                                                                                          
+    },                                                                                                                                                                     
+    {                                                                                                                                                                      
+      href: "https://github.com/RishabhDubeyCS?tab=repositories",                                                                                                                                         
+      label: "GitHub",                                                                                                                                                     
+      icon: Globe,                                                                                                                                                         
+    },                                                                                                                                                                     
+    {                                                                                                                                                                      
+      href: "https://www.linkedin.com/in/rishabh-dubey-362500298/",                                                                                                                                   
+      label: "LinkedIn",                                                                                                                                                   
+      icon: Globe,                                                                                                                                                         
+    },                                                                                                                                                                     
+  ];                                                                                                                                                                       
+                                                                                                                                                                           
+  export function Footer() {                                                                                                                                               
+    return (                                                                                                                                                               
+      <footer className="mt-auto border-t border-white/10 bg-black px-4 py-10 sm:px-6">                                                                                    
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">                                                                                                     
+          <Card className="overflow-hidden border border-white/10 bg-white/[0.03] text-white shadow-none">                                                                 
+            <CardHeader className="gap-3 border-b border-white/10 pb-6">                                                                                                   
+              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.28em] text-cyan-200/80">                                                               
+                <span className="h-px w-10 bg-cyan-300/70" />                                                                                                              
+                Let&apos;s Build                                                                                                                                           
+              </div>                                                                                                                                                       
+              <CardTitle className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">                                                                         
+                Need a portfolio, landing page, or product interface that feels sharp?                                                                                     
+              </CardTitle>                                                                                                                                                 
+              <CardDescription className="max-w-2xl text-sm leading-6 text-white/60 sm:text-base">                                                                         
+                I build modern frontend experiences with Next.js, Tailwind CSS, and                                                                                        
+                production-focused UI systems.                                                                                                                             
+              </CardDescription>                                                                                                                                           
+            </CardHeader>                                                                                                                                                  
+                                                                                                                                                                           
+            <CardContent className="grid gap-8 py-6 md:grid-cols-[1.4fr_0.8fr_0.8fr]">                                                                                     
+              <div className="space-y-4">                                                                                                                                  
+                <p className="max-w-md text-sm leading-6 text-white/65">
+                  Clean structure, responsive layouts, and component-driven design                                                                                         
+                  without generic template styling.                                                                                                                        
+                </p>                                                                                                                                                       
+                <Button                                                                                                                                                    
+                  asChild                                                                                                                                                  
+                  className="h-11 rounded-full bg-cyan-300 px-5 text-black hover:bg-cyan-200"                                                                              
+                >                                                                                                                                                          
+                  <Link href="/#contact" scroll={false}>                                                                                                                   
+                    Start a Project                                                                                                                                        
+                    <ArrowUpRight className="size-4" />                                                                                                                    
+                  </Link>                                                                                                                                                  
+                </Button>                                                                                                                                                  
+              </div>                                                                                                                                                       
+                                                                                                                                                                           
+              <div className="space-y-3">                                                                                                                                  
+                <p className="text-xs uppercase tracking-[0.24em] text-white/45">                                                                                          
+                  Quick Links                                                                                                                                              
+                </p>                                                                                                                                                       
+                <div className="flex flex-col gap-2">                                                                                                                      
+                  {quickLinks.map((link) => (                                                                                                                              
+                    <Link                                                                                                                                                  
+                      key={link.href}                                                                                                                                      
+                      href={link.href}                                                                                                                                     
+                      scroll={false}                                                                                                                                       
+                      className="text-sm text-white/70 transition hover:text-cyan-200"                                                                                     
+                    >                                                                                                                                                      
+                      {link.label}                                                                                                                                         
+                    </Link>                                                                                                                                                
+                  ))}                                                                                                                                                      
+                </div>                                                                                                                                                     
+              </div>                                                                                                                                                       
+                                                                                                                                                                           
+              <div className="space-y-3">                                                                                                                                  
+                <p className="text-xs uppercase tracking-[0.24em] text-white/45">                                                                                          
+                  Connect                                                                                                                                                  
+                </p>                                                                                                                                                       
+                <div className="flex flex-col gap-2">                                                                                                                      
+                  {socialLinks.map(({ href, label, icon: Icon }) => (                                                                                                      
+                    <Link                                                                                                                                                  
+                      key={label}                                                                                                                                          
+                      href={href}                                                                                                                                          
+                      target="_blank"                                                                                                                                      
+                      rel="noreferrer"                                                                                                                                     
+                      className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-cyan-200"                                                      
+                    >                                                                                                                                                      
+                      <Icon className="size-4" />                                                                                                                          
+                      {label}                                                                                                                                              
+                    </Link>                                                                                                                                                
+                  ))}                                                                                                                                                      
+                </div>                                                                                                                                                     
+              </div>                                                                                                                                                       
+            </CardContent>                                                                                                                                                 
 
-const Footer = () => {
-  const container = useRef<HTMLDivElement>(null);
-  const [openPopup, setOpenPopUp] = useState(false);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const letters = "RISHABH".split("");
-
-  const variants = {
-    visible: (i: number) => ({
-      y: 0,
-      transition: {
-        type: 'spring' as const,
-        stiffness: 100,
-        damping: 12,
-        duration: 0.4,
-        delay: i * 0.05,
-      },
-    }),
-    hidden: { y: 200 },
-  };
-
-  const handleNewsLetterData = (e: FormEvent) => {
-    e.preventDefault();
-    const target = e.target as HTMLFormElement;
-    setOpenPopUp(true);
-    target.reset();
-    setTimeout(() => {
-      setOpenPopUp(false);
-    }, 2000);
-  };
-
-  return (
-    <footer
-      className='relative h-full sm:pt-14 pt-8 bg-background text-foreground border-t border-border'
-      ref={container}
-    >
-      <div className='max-w-7xl px-4 mx-auto'>
-        <div className='md:flex justify-between w-full gap-10'>
-          <div className='flex-1'>
-            <h2 className='md:text-4xl text-2xl font-semibold'>
-              Let&apos;s do great work together
-            </h2>
-            <div className='pt-2 pb-6 md:w-96'>
-              <p className='md:text-2xl text-xl py-4'>
-                Sign up for my newsletter*
-              </p>
-              <div className='hover-button relative bg-foreground flex justify-between items-center border-2 overflow-hidden border-foreground rounded-full text-background hover:text-foreground md:text-2xl transition-colors duration-300'>
-                <form
-                  onSubmit={handleNewsLetterData}
-                  className='relative z-10 grid grid-cols-6 w-full h-full group'
-                >
-                  <input
-                    type='email'
-                    name='newsletter_email'
-                    required
-                    className='border-none bg-transparent py-3 px-6 col-span-5 focus:outline-none placeholder:text-background/50 group-hover:placeholder:text-foreground/50'
-                    placeholder='Your Email *'
-                  />
-                  <button
-                    type='submit'
-                    className='cursor-pointer w-full flex items-center justify-center bg-background text-foreground h-full col-span-1 border-l border-foreground hover:bg-accent transition-colors'
-                  >
-                    <svg
-                      width='15'
-                      height='15'
-                      viewBox='0 0 15 15'
-                      fill='none'
-                      className='w-6 h-6'
-                      xmlns='http://www.w3.org/2000/svg'
-                    >
-                      <path
-                        d='M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z'
-                        fill='currentColor'
-                        fillRule='evenodd'
-                        clipRule='evenodd'
-                      ></path>
-                    </svg>
-                  </button>
-                </form>
-              </div>
-              {openPopup && (
-                <p className="text-sm mt-2 text-green-500 font-medium">
-                  Thanks for signing up!
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div className='flex gap-16 md:mt-0 mt-8'>
-            <ul className="space-y-3">
-              <li className='text-sm font-bold tracking-widest text-muted-foreground uppercase'>
-                SITEMAP
-              </li>
-              <li className='text-lg font-medium'>
-                <Link href='/#home' className="hover:text-primary transition-colors">Home</Link>
-              </li>
-              <li className='text-lg font-medium'>
-                <Link href='/projects' className="hover:text-primary transition-colors">Projects</Link>
-              </li>
-              <li className='text-lg font-medium'>
-                <Link href='/about' className="hover:text-primary transition-colors">About</Link>
-              </li>
-              <li className='text-lg font-medium'>
-                <Link href='/#contact' className="hover:text-primary transition-colors">Contact</Link>
-              </li>
-            </ul>
-            <ul className="space-y-3">
-              <li className='text-sm font-bold tracking-widest text-muted-foreground uppercase'>
-                SOCIAL
-              </li>
-              <li className='text-lg font-medium'>
-                <a
-                  href='https://linkedin.com/'
-                  target='_blank'
-                  rel="noopener noreferrer"
-                  className='hover:underline hover:text-primary transition-colors'
-                >
-                  LinkedIn
-                </a>
-              </li>
-              <li className='text-lg font-medium'>
-                <a
-                  href='https://github.com/'
-                  target='_blank'
-                  rel="noopener noreferrer"
-                  className='hover:underline hover:text-primary transition-colors'
-                >
-                  GitHub
-                </a>
-              </li>
-              <li className='text-lg font-medium'>
-                <a
-                  href='mailto:rishabh@example.com'
-                  className='hover:underline hover:text-primary transition-colors'
-                >
-                  Email
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className='border-y border-border md:py-8 py-4 mt-8 overflow-hidden'>
-          <div
-            ref={ref}
-            className='flex justify-center items-center select-none'
-          >
-            <div className="flex overflow-hidden">
-              {letters.map((letter, index) => (
-                <motion.span
-                  key={index}
-                  custom={index}
-                  variants={variants}
-                  initial="hidden"
-                  animate={isInView ? 'visible' : 'hidden'}
-                  className="text-[15vw] md:text-[12vw] font-black leading-none text-primary tracking-tighter inline-block"
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className='flex md:flex-row flex-col-reverse gap-3 justify-between py-6 text-sm text-muted-foreground'>
-          <span className='font-medium'>
-            &copy; {new Date().getFullYear()} Rishabh Dubey. All Rights Reserved.
-          </span>
-          <div className="flex gap-6">
-            <Link href='#' className='hover:text-foreground transition-colors'>
-              Privacy Policy
-            </Link>
-            <Link href='#' className='hover:text-foreground transition-colors'>
-              Terms of Service
-            </Link>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-export { Footer };
+            <CardFooter className="flex flex-col items-start justify-between gap-3 border-white/10 bg-white/[0.02] text-xs text-white/45 sm:flex-row sm:items-center">     
+              <p>(c) 2026 Rishabh Dubey. Built with Next.js and shadcn/ui.</p>
+              <Link href="/#home" scroll={false} className="transition hover:text-cyan-200">                                                                               
+                Back to top                                                                                                                                                
+              </Link>                                                                                                                                                      
+            </CardFooter>                                                                                                                                                  
+          </Card>                                                                                                                                                          
+        </div>                                                                                                                                                             
+      </footer>                                                                                                                                                            
+    );                                                                                                                                                                     
+  }                                                          
