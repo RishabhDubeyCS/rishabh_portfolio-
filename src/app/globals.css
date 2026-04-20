@@ -153,7 +153,28 @@
     @apply bg-background text-foreground overflow-x-hidden;
   }
   html {
-    @apply font-sans h-full;
+    @apply font-sans;
     scroll-padding-top: 5.5rem;
   }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

@@ -1,80 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
-
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "Full-stack Next.js commerce solution with Stripe integration.",
-    slug: "e-commerce-platform",
-    tag: "Full Stack",
-    tech: ["Next.js", "Node.js", "MongoDB", "Stripe"],
-    content: "E-commerce app with cart, auth, and payment integration.",
-  },
-  {
-    title: "AI Image Generator",
-    description: "Generate high-quality images using OpenAI API.",
-    slug: "ai-image-generator",
-    tag: "AI",
-    tech: ["React", "OpenAI API", "Node.js"],
-    content: "AI-based image generator using prompt inputs.",
-  },
-  {
-    title: "Portfolio Website",
-    description: "Modern animated portfolio using Framer Motion.",
-    slug: "portfolio-website",
-    tag: "Frontend",
-    tech: ["Next.js", "Tailwind", "Framer Motion"],
-    content: "Personal portfolio with animations and modern UI.",
-  },
-  {
-    title: "Real-time Chat App",
-    description: "Chat application using Socket.io and Redis.",
-    slug: "chat-app",
-    tag: "Realtime",
-    tech: ["Node.js", "Socket.io", "Redis"],
-    content: "Real-time messaging with instant updates.",
-  },
-  {
-    title: "SaaS Dashboard",
-    description: "Analytics dashboard with authentication & payments.",
-    slug: "saas-dashboard",
-    tag: "SaaS",
-    tech: ["Next.js", "Stripe", "PostgreSQL"],
-    content: "SaaS dashboard with analytics and billing.",
-  },
-  {
-    title: "Task Manager API",
-    description: "REST API built with Node.js and MongoDB.",
-    slug: "task-manager",
-    tag: "Backend",
-    tech: ["Node.js", "Express", "MongoDB"],
-    content: "Task management backend API.",
-  },
-  {
-    title: "Social Media App",
-    description: "Full-stack app with posts, likes, and comments.",
-    slug: "social-app",
-    tag: "Full Stack",
-    tech: ["React", "Node.js", "MongoDB"],
-    content: "Social platform with user interaction features.",
-  },
-  {
-    title: "Dev Portfolio Builder",
-    description: "Tool to generate developer portfolios dynamically.",
-    slug: "portfolio-builder",
-    tag: "Tool",
-    tech: ["Next.js", "Tailwind", "AI"],
-    content: "Auto-generate developer portfolios.",
-  },
-  {
-    title: "Blog Platform",
-    description: "Markdown-based blogging system with CMS.",
-    slug: "blog-platform",
-    tag: "CMS",
-    tech: ["Next.js", "Markdown", "CMS"],
-    content: "Blog platform with markdown support.",
-  },
-];
+import { projects } from "@/lib/projects-data";
+import { Code2, Globe, ArrowRight } from "lucide-react";
 
 export default function ProjectsPage() {
   return (
@@ -84,7 +13,7 @@ export default function ProjectsPage() {
         {/* Heading */}
         <div className="mb-14">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
-            My Projects 
+            My <span className="text-cyan-400">Projects</span>
           </h1>
           <p className="text-lg text-neutral-400 max-w-2xl">
             A collection of real-world applications showcasing full-stack development,
@@ -95,43 +24,78 @@ export default function ProjectsPage() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <Link
+            <div
               key={project.slug}
-              href={`/projects/${project.slug}`}
-              className="group p-6 rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:bg-white/[0.05] hover:border-cyan-400/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10"
+              className="group p-6 rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-300 hover:bg-white/[0.05] hover:border-cyan-400/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10 flex flex-col"
             >
               {/* Tag */}
-              <span className="inline-block mb-3 text-xs px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300">
+              <span className="inline-block self-start mb-3 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
                 {project.tag}
               </span>
 
               {/* Title */}
-              <h3 className="text-xl font-semibold text-white group-hover:text-cyan-200 transition">
+              <h3 className="text-xl font-bold text-white group-hover:text-cyan-200 transition">
                 {project.title}
               </h3>
 
               {/* Description */}
-              <p className="mt-3 text-neutral-400 text-sm leading-relaxed">
+              <p className="mt-3 text-neutral-400 text-sm leading-relaxed flex-grow">
                 {project.description}
               </p>
 
               {/* Tech Stack Preview */}
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-wrap gap-2">
                 {project.tech.slice(0, 3).map((tech, i) => (
                   <span
                     key={i}
-                    className="text-xs px-2 py-1 bg-white/10 rounded-md text-neutral-300"
+                    className="text-[10px] font-medium px-2 py-1 bg-white/5 rounded border border-white/5 text-neutral-400"
                   >
                     {tech}
                   </span>
                 ))}
+                {project.tech.length > 3 && (
+                  <span className="text-[10px] font-medium px-2 py-1 text-neutral-500">
+                    +{project.tech.length - 3} more
+                  </span>
+                )}
               </div>
 
-              {/* Footer */}
-              <div className="mt-6 flex items-center gap-2 text-cyan-300 text-sm font-medium">
-                View Details →
+              {/* Actions */}
+              <div className="mt-8 flex items-center justify-between gap-4">
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="inline-flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-widest hover:text-cyan-200 transition-colors group/link"
+                >
+                  Details
+                  <ArrowRight className="size-3 group-hover/link:translate-x-1 transition-transform" />
+                </Link>
+
+                <div className="flex items-center gap-3">
+                  {project.github && project.github !== "#" && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-white/5 text-neutral-400 hover:bg-white/10 hover:text-white transition-all"
+                      title="GitHub Repository"
+                    >
+                      <Code2 className="size-4" />
+                    </a>
+                  )}
+                  {project.live && project.live !== "#" && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-white/5 text-neutral-400 hover:bg-white/10 hover:text-white transition-all"
+                      title="Live Demo"
+                    >
+                      <Globe className="size-4" />
+                    </a>
+                  )}
+                </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
