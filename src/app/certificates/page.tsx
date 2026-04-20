@@ -1,10 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink, Award, ShieldCheck, Zap, Globe, Briefcase } from "lucide-react";
+import { ExternalLink, Award, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,49 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-const certificates = [
-  {
-    title: "Google Analytics Certification",
-    desc: "Sharpened my ability to turn data into insights and measure real business impact through user interaction analysis.",
-    img: "https://images.unsplash.com/photo-1551288049-bbda38a594a0",
-    tag: "Analytics",
-    icon: <Globe className="size-5 text-blue-400" />,
-    color: "from-blue-500/20",
-  },
-  {
-    title: "AWS Billing & Cost Management",
-    desc: "Focused on cloud financial management and cost optimization strategies within the Amazon Web Services ecosystem.",
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
-    tag: "Cloud",
-    icon: <Zap className="size-5 text-orange-400" />,
-    color: "from-orange-500/20",
-  },
-  {
-    title: "AI / Machine Learning",
-    desc: "Demonstrated deep understanding of AI concepts and proficiency in ML algorithms through intensive study.",
-    img: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
-    tag: "AI/ML",
-    icon: <ShieldCheck className="size-5 text-purple-400" />,
-    color: "from-purple-500/20",
-  },
-  {
-    title: "Generative AI Workshop",
-    desc: "Hands-on experience with LLMs and Generative models conducted by industry experts from IIT Delhi.",
-    img: "https://images.unsplash.com/photo-1620712943543-bcc4638d9f8d",
-    tag: "GenAI",
-    icon: <Zap className="size-5 text-cyan-400" />,
-    color: "from-cyan-500/20",
-  },
-  {
-    title: "Klaviyo Product Certificate",
-    desc: "Proficiency in marketing automation and leveraging customer data platforms for high-conversion workflows.",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-    tag: "Marketing",
-    icon: <Briefcase className="size-5 text-emerald-400" />,
-    color: "from-emerald-500/20",
-  },
-];
+import { certificates, Certificate } from "@/lib/certificates-data";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -73,6 +31,81 @@ const itemVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
 };
+
+function CertificateCard({ item }: { item: Certificate }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <motion.div variants={itemVariants} className="h-full">
+      <Card className="group relative h-full flex flex-col overflow-hidden bg-neutral-900/40 border-white/5 backdrop-blur-sm transition-all duration-500 hover:border-cyan-500/40 hover:shadow-[0_0_40px_rgba(6,182,212,0.1)]">
+        
+        {/* Visual Accent */}
+        <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${item.color} to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+
+        {/* Image Holder */}
+        <CardHeader className="p-0 relative h-56 overflow-hidden bg-neutral-800">
+          {!imageLoaded && !imageError && (
+            <div className="absolute inset-0 flex items-center justify-center bg-neutral-800 z-10">
+              <Loader2 className="size-8 text-cyan-500/50 animate-spin" />
+            </div>
+          )}
+          
+          {imageError ? (
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-neutral-800 text-neutral-500 gap-2">
+              <Award className="size-10 opacity-20" />
+              <span className="text-xs font-medium uppercase tracking-wider">Credential Image</span>
+            </div>
+          ) : (
+            <Image
+              src={item.img}
+              alt={item.title}
+              fill
+              className={`object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setImageError(true)}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          )}
+          
+          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
+          
+          {/* Tag & Icon Overlay */}
+          <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-10">
+             <div className="p-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-white shadow-xl">
+               {item.icon}
+             </div>
+             <Badge variant="outline" className="bg-black/60 backdrop-blur-md text-cyan-400 border-cyan-500/30 px-3 py-1 text-[10px] font-bold uppercase tracking-wider">
+               {item.tag}
+             </Badge>
+          </div>
+        </CardHeader>
+
+        {/* Body Content */}
+        <CardContent className="p-6 flex-1 flex flex-col">
+          <CardTitle className="text-xl text-white group-hover:text-cyan-300 transition-colors mb-3 line-clamp-2">
+            {item.title}
+          </CardTitle>
+          <CardDescription className="text-neutral-400 text-sm leading-relaxed mb-4 line-clamp-3">
+            {item.desc}
+          </CardDescription>
+        </CardContent>
+
+        {/* Footer Link */}
+        <CardFooter className="p-6 pt-0 mt-auto">
+          <a href={item.link} target="_blank" rel="noopener noreferrer" className="w-full">
+            <Button 
+              className="w-full bg-white/5 hover:bg-cyan-500 hover:text-black text-white border border-white/10 hover:border-cyan-500 transition-all duration-300 flex items-center justify-center gap-2 group/btn py-6 rounded-xl font-bold"
+            >
+              <span>Verify Credential</span>
+              <ExternalLink className="size-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+            </Button>
+          </a>
+        </CardFooter>
+      </Card>
+    </motion.div>
+  );
+}
 
 export default function CertificatesPage() {
   return (
@@ -114,57 +147,10 @@ export default function CertificatesPage() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
         >
           {certificates.map((item, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <Card className="group relative h-full flex flex-col overflow-hidden bg-neutral-900/40 border-white/5 backdrop-blur-sm transition-all duration-500 hover:border-cyan-500/40 hover:shadow-[0_0_40px_rgba(6,182,212,0.1)]">
-                
-                {/* Visual Accent */}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${item.color} to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-
-                {/* Image Holder */}
-                <CardHeader className="p-0 relative h-52 overflow-hidden">
-                  <Image
-                    src={item.img}
-                    alt={item.title}
-                    fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
-                  <div className="absolute top-4 left-4 z-10">
-                    <div className="p-2 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-white">
-                      {item.icon}
-                    </div>
-                  </div>
-                </CardHeader>
-
-                {/* Body Content */}
-                <CardContent className="p-6 flex-1 flex flex-col">
-                  <div className="mb-4">
-                    <Badge variant="outline" className="bg-cyan-500/5 text-cyan-400 border-cyan-500/20 mb-3 px-3">
-                      {item.tag}
-                    </Badge>
-                    <CardTitle className="text-xl text-white group-hover:text-cyan-300 transition-colors">
-                      {item.title}
-                    </CardTitle>
-                  </div>
-                  <CardDescription className="text-neutral-400 text-sm leading-relaxed mb-4">
-                    {item.desc}
-                  </CardDescription>
-                </CardContent>
-
-                {/* Footer Link */}
-                <CardFooter className="p-6 pt-0">
-                  <Button 
-                    className="w-full bg-white/5 hover:bg-cyan-500 hover:text-black text-white border border-white/10 hover:border-cyan-500 transition-all duration-300 flex items-center gap-2 group/btn"
-                  >
-                    <span>View Credential</span>
-                    <ExternalLink className="size-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
+            <CertificateCard key={index} item={item} />
           ))}
         </motion.div>
 
