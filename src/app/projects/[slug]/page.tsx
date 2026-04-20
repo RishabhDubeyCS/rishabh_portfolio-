@@ -41,7 +41,7 @@ export default async function ProjectDetailsPage({
           </span>
           
           <div className="flex items-center gap-4">
-            {project.github && project.github !== "#" && (
+            {project.github && (
               <a
                 href={project.github}
                 target="_blank"
@@ -52,7 +52,7 @@ export default async function ProjectDetailsPage({
                 <span>Source Code</span>
               </a>
             )}
-            {project.live && project.live !== "#" && (
+            {project.live && (
               <a
                 href={project.live}
                 target="_blank"
@@ -110,7 +110,7 @@ export default async function ProjectDetailsPage({
                   Explore the full codebase or check out the interactive demo.
                 </p>
                 <div className="pt-2 space-y-3">
-                  {project.live && project.live !== "#" && (
+                  {project.live && (
                     <a
                       href={project.live}
                       target="_blank"
@@ -121,7 +121,7 @@ export default async function ProjectDetailsPage({
                       <ExternalLink className="size-4" />
                     </a>
                   )}
-                  {project.github && project.github !== "#" && (
+                  {project.github && (
                     <a
                       href={project.github}
                       target="_blank"

@@ -1,6 +1,6 @@
                                                                                                                                                                          
   import Link from "next/link";                                                                                                                                            
-  import { ArrowUpRight, Globe, Mail } from "lucide-react";                                                                                                                
+  import { ArrowUpRight, Code2, Globe, Mail } from "lucide-react";                                                                                                                
   import { Button } from "@/components/ui/button";                                                                                                                         
   import {                                                                                                                                                                 
     Card,                                                                                                                                                                  
@@ -27,7 +27,7 @@
     {                                                                                                                                                                      
       href: "https://github.com/RishabhDubeyCS?tab=repositories",                                                                                                                                         
       label: "GitHub",                                                                                                                                                     
-      icon: Globe,                                                                                                                                                         
+      icon: Code2,                                                                                                                                                         
     },                                                                                                                                                                     
     {                                                                                                                                                                      
       href: "https://www.linkedin.com/in/rishabh-dubey-362500298/",                                                                                                                                   

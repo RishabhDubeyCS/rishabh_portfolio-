@@ -8,7 +8,7 @@ import { Download } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[40rem] lg:h-screen w-full overflow-hidden bg-black/[0.96] antialiased md:items-center md:justify-center py-20 lg:py-0">
+    <section id="home" className="relative flex min-h-[40rem] lg:h-screen w-full overflow-hidden bg-black/[0.96] antialiased md:items-center md:justify-center py-20 lg:py-0">
       
       {/* Grid Background */}
       <div
