@@ -4,6 +4,7 @@ import Projects from "@/components/sections/projects";
 import Testimonials from "@/components/sections/testimonials";
 import GlobalReach from "@/components/sections/global-reach";
 import Contact from "@/components/sections/contact";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Testimonials />
       <GlobalReach />
       <Contact />
+     
     </main>
   );
 }
