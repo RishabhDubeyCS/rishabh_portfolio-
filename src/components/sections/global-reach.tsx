@@ -6,13 +6,13 @@ import { motion } from "framer-motion";
 
 export default function GlobalReach() {
   return (
-    <section className="py-24 bg-black w-full overflow-hidden">
+    <section className="py-24 bg-background w-full overflow-hidden border-y border-border/50">
       
       {/* Heading */}
       <div className="max-w-6xl mx-auto text-center px-4 mb-16">
-        <h2 className="font-bold text-3xl md:text-5xl text-white">
+        <h2 className="font-bold text-3xl md:text-5xl text-foreground">
           Building{" "}
-          <span className="text-cyan-400">
+          <span className="text-cyan-600 dark:text-cyan-400">
             {"Global Solutions".split("").map((char, idx) => (
               <motion.span
                 key={idx}
@@ -29,7 +29,7 @@ export default function GlobalReach() {
         </h2>
 
         {/* Description */}
-        <p className="text-base md:text-lg text-neutral-400 max-w-2xl mx-auto mt-6 leading-relaxed">
+        <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mt-6 leading-relaxed">
           Developing scalable web applications that connect users across the globe.
           From India to international clients, I focus on building fast,
           responsive, and user-friendly digital experiences.

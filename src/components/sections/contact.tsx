@@ -63,11 +63,11 @@ export default function Contact() {
     }
   };
 
-  if (!mounted) return <section id="contact" className="py-24 bg-black min-h-[600px]" />;
+  if (!mounted) return <section id="contact" className="py-24 bg-background min-h-[600px]" />;
 
   return (
-    <section id="contact" className="py-24 bg-black text-white overflow-hidden relative">
-      <div className="absolute inset-0 [background-image:linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] [background-size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+    <section id="contact" className="py-24 bg-background text-foreground overflow-hidden relative">
+      <div className="absolute inset-0 dark:[background-image:linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] [background-image:linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] [background-size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
       
       <div className="max-w-4xl mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
@@ -77,13 +77,13 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
-            Get In <span className="text-cyan-400">Touch</span>
+            Get In <span className="text-cyan-600 dark:text-cyan-400">Touch</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-neutral-400 text-lg"
+            className="text-muted-foreground text-lg"
           >
             Have a project in mind? Let&apos;s build something amazing together.
           </motion.p>
@@ -93,7 +93,7 @@ export default function Contact() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="bg-neutral-900/50 backdrop-blur-sm border border-white/10 p-8 rounded-2xl shadow-2xl"
+          className="bg-card/50 backdrop-blur-sm border border-border p-8 rounded-2xl shadow-2xl"
         >
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             {/* Hidden field for EmailJS recipient with guaranteed fallback */}
@@ -106,62 +106,62 @@ export default function Contact() {
             
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-neutral-300">Name</label>
+                <label className="text-sm font-medium text-muted-foreground">Name</label>
                 <Input 
                   name="user_name"
                   placeholder="John Doe" 
                   required 
-                  className="bg-white/5 border-white/10 text-white placeholder:text-neutral-500 focus:border-cyan-400 transition-colors"
+                  className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground focus:border-cyan-500 transition-colors"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-neutral-300">Email</label>
+                <label className="text-sm font-medium text-muted-foreground">Email</label>
                 <Input 
                   name="user_email"
                   type="email" 
                   placeholder="john@example.com" 
                   required 
-                  className="bg-white/5 border-white/10 text-white placeholder:text-neutral-500 focus:border-cyan-400 transition-colors"
+                  className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground focus:border-cyan-500 transition-colors"
                 />
               </div>
             </div>
             
             <div className="space-y-2">
-              <label className="text-sm font-medium text-neutral-300">Subject</label>
+              <label className="text-sm font-medium text-muted-foreground">Subject</label>
               <Input 
                 name="subject"
                 placeholder="Project Inquiry" 
                 required 
-                className="bg-white/5 border-white/10 text-white placeholder:text-neutral-500 focus:border-cyan-400 transition-colors"
+                className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground focus:border-cyan-500 transition-colors"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-neutral-300">Message</label>
+              <label className="text-sm font-medium text-muted-foreground">Message</label>
               <textarea 
                 name="message"
                 rows={5}
                 required
                 placeholder="Tell me about your project..."
-                className="w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-neutral-500 focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-colors"
+                className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-colors"
               />
             </div>
 
             <Button 
               type="submit" 
               disabled={loading}
-              className="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-bold py-6 text-lg transition-all transform hover:scale-[1.02]"
+              className="w-full bg-cyan-600 dark:bg-cyan-500 hover:bg-cyan-700 dark:hover:bg-cyan-600 text-white dark:text-black font-bold py-6 text-lg transition-all transform hover:scale-[1.02]"
             >
               {loading ? "Sending..." : "Send Message"}
             </Button>
 
             {status === "success" && (
-              <p className="text-center text-green-400 font-medium animate-pulse">
+              <p className="text-center text-green-600 dark:text-green-400 font-medium animate-pulse">
                 Message sent successfully!
               </p>
             )}
             {status === "error" && (
-              <p className="text-center text-red-400 font-medium">
+              <p className="text-center text-red-600 dark:text-red-400 font-medium">
                 Something went wrong. Please try again.
               </p>
             )}

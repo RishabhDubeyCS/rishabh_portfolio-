@@ -38,18 +38,18 @@
                                                                                                                                                                            
   export function Footer() {                                                                                                                                               
     return (                                                                                                                                                               
-      <footer className="mt-auto border-t border-white/10 bg-black px-4 py-10 sm:px-6">                                                                                    
+      <footer className="mt-auto border-t border-border bg-background px-4 py-10 sm:px-6">                                                                                    
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">                                                                                                     
-          <Card className="overflow-hidden border border-white/10 bg-white/[0.03] text-white shadow-none">                                                                 
-            <CardHeader className="gap-3 border-b border-white/10 pb-6">                                                                                                   
-              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.28em] text-cyan-200/80">                                                               
-                <span className="h-px w-10 bg-cyan-300/70" />                                                                                                              
+          <Card className="overflow-hidden border border-border bg-card text-foreground shadow-none">                                                                 
+            <CardHeader className="gap-3 border-b border-border pb-6">                                                                                                   
+              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.28em] text-cyan-600 dark:text-cyan-200/80">                                                               
+                <span className="h-px w-10 bg-cyan-600/70 dark:bg-cyan-300/70" />                                                                                                              
                 Let&apos;s Build                                                                                                                                           
               </div>                                                                                                                                                       
-              <CardTitle className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">                                                                         
+              <CardTitle className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">                                                                         
                 Need a portfolio, landing page, or product interface that feels sharp?                                                                                     
               </CardTitle>                                                                                                                                                 
-              <CardDescription className="max-w-2xl text-sm leading-6 text-white/60 sm:text-base">                                                                         
+              <CardDescription className="max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">                                                                         
                 I build modern frontend experiences with Next.js, Tailwind CSS, and                                                                                        
                 production-focused UI systems.                                                                                                                             
               </CardDescription>                                                                                                                                           
@@ -57,13 +57,13 @@
                                                                                                                                                                            
             <CardContent className="grid gap-8 py-6 md:grid-cols-[1.4fr_0.8fr_0.8fr]">                                                                                     
               <div className="space-y-4">                                                                                                                                  
-                <p className="max-w-md text-sm leading-6 text-white/65">
+                <p className="max-w-md text-sm leading-6 text-muted-foreground/80">
                   Clean structure, responsive layouts, and component-driven design                                                                                         
                   without generic template styling.                                                                                                                        
                 </p>                                                                                                                                                       
                 <Button                                                                                                                                                    
                   asChild                                                                                                                                                  
-                  className="h-11 rounded-full bg-cyan-300 px-5 text-black hover:bg-cyan-200"                                                                              
+                  className="h-11 rounded-full bg-cyan-600 dark:bg-cyan-300 px-5 text-white dark:text-black hover:bg-cyan-700 dark:hover:bg-cyan-200"                                                                              
                 >                                                                                                                                                          
                   <Link href="/#contact" scroll={false}>                                                                                                                   
                     Start a Project                                                                                                                                        
@@ -73,7 +73,7 @@
               </div>                                                                                                                                                       
                                                                                                                                                                            
               <div className="space-y-3">                                                                                                                                  
-                <p className="text-xs uppercase tracking-[0.24em] text-white/45">                                                                                          
+                <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground/60">                                                                                          
                   Quick Links                                                                                                                                              
                 </p>                                                                                                                                                       
                 <div className="flex flex-col gap-2">                                                                                                                      
@@ -82,7 +82,7 @@
                       key={link.href}                                                                                                                                      
                       href={link.href}                                                                                                                                     
                       scroll={false}                                                                                                                                       
-                      className="text-sm text-white/70 transition hover:text-cyan-200"                                                                                     
+                      className="text-sm text-muted-foreground transition hover:text-cyan-600 dark:hover:text-cyan-200"                                                                                     
                     >                                                                                                                                                      
                       {link.label}                                                                                                                                         
                     </Link>                                                                                                                                                
@@ -91,7 +91,7 @@
               </div>                                                                                                                                                       
                                                                                                                                                                            
               <div className="space-y-3">                                                                                                                                  
-                <p className="text-xs uppercase tracking-[0.24em] text-white/45">                                                                                          
+                <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground/60">                                                                                          
                   Connect                                                                                                                                                  
                 </p>                                                                                                                                                       
                 <div className="flex flex-col gap-2">                                                                                                                      
@@ -101,7 +101,7 @@
                       href={href}                                                                                                                                          
                       target="_blank"                                                                                                                                      
                       rel="noreferrer"                                                                                                                                     
-                      className="inline-flex items-center gap-2 text-sm text-white/70 transition hover:text-cyan-200"                                                      
+                      className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-cyan-600 dark:hover:text-cyan-200"                                                      
                     >                                                                                                                                                      
                       <Icon className="size-4" />                                                                                                                          
                       {label}                                                                                                                                              
@@ -111,9 +111,9 @@
               </div>                                                                                                                                                       
             </CardContent>                                                                                                                                                 
 
-            <CardFooter className="flex flex-col items-start justify-between gap-3 border-white/10 bg-white/[0.02] text-xs text-white/45 sm:flex-row sm:items-center">     
+            <CardFooter className="flex flex-col items-start justify-between gap-3 border-border bg-muted/20 text-xs text-muted-foreground/60 sm:flex-row sm:items-center">     
               <p>(c) 2026 Rishabh Dubey. Built with Next.js and shadcn/ui.</p>
-              <Link href="/#home" scroll={false} className="transition hover:text-cyan-200">                                                                               
+              <Link href="/#home" scroll={false} className="transition hover:text-cyan-600 dark:hover:text-cyan-200">                                                                               
                 Back to top                                                                                                                                                
               </Link>                                                                                                                                                      
             </CardFooter>                                                                                                                                                  

@@ -5,12 +5,12 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export default function Testimonials() {
   return (
-    <section className="py-24 flex flex-col antialiased bg-black items-center justify-center relative overflow-hidden">
+    <section className="py-24 flex flex-col antialiased bg-background items-center justify-center relative overflow-hidden border-t border-border/50">
       <div className="max-w-4xl mx-auto text-center px-4 mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-          Words of <span className="text-cyan-400">Wisdom</span>
+        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+          Words of <span className="text-cyan-600 dark:text-cyan-400">Wisdom</span>
         </h2>
-        <p className="text-neutral-400 text-lg">
+        <p className="text-muted-foreground text-lg">
           Insights from industry leaders that inspire my development process and philosophy.
         </p>
       </div>

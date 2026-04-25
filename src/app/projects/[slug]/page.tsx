@@ -17,26 +17,26 @@ export default async function ProjectDetailsPage({
   }
 
   return (
-    <div className="min-h-screen bg-black pt-24 pb-12 px-4 sm:px-6">
+    <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6">
       <div className="mx-auto max-w-4xl">
         
         {/* Back */}
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-500 hover:text-cyan-400 transition mb-12 group"
+          className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-cyan-600 dark:hover:text-cyan-400 transition mb-12 group"
         >
           <ArrowLeft className="size-4 group-hover:-translate-x-1 transition-transform" />
           Back to Projects
         </Link>
 
         {/* Title */}
-        <h1 className="text-4xl font-bold text-white mb-6 sm:text-7xl tracking-tighter">
+        <h1 className="text-4xl font-bold text-foreground mb-6 sm:text-7xl tracking-tighter">
           {project.title}
         </h1>
 
         {/* Header Metadata */}
         <div className="flex flex-wrap items-center gap-6 mb-12">
-          <span className="text-[11px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+          <span className="text-[11px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
             {project.tag}
           </span>
           
@@ -46,7 +46,7 @@ export default async function ProjectDetailsPage({
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-semibold text-neutral-400 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Code2 className="size-5" />
                 <span>Source Code</span>
@@ -57,7 +57,7 @@ export default async function ProjectDetailsPage({
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm font-semibold text-neutral-400 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Globe className="size-5" />
                 <span>Live Demo</span>
@@ -67,18 +67,18 @@ export default async function ProjectDetailsPage({
         </div>
 
         {/* Description */}
-        <p className="text-xl md:text-2xl text-cyan-200/80 mb-16 leading-relaxed font-medium">
+        <p className="text-xl md:text-2xl text-cyan-700/80 dark:text-cyan-200/80 mb-16 leading-relaxed font-medium">
           {project.description}
         </p>
 
         {/* Content & Details Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
               Overview
-              <div className="h-px flex-grow bg-white/10"></div>
+              <div className="h-px flex-grow bg-border"></div>
             </h3>
-            <div className="prose prose-invert prose-cyan max-w-none text-neutral-400">
+            <div className="prose dark:prose-invert prose-cyan max-w-none text-muted-foreground">
               <p className="text-lg leading-loose whitespace-pre-line">
                 {project.content}
               </p>
@@ -88,14 +88,14 @@ export default async function ProjectDetailsPage({
           <div className="lg:col-span-4">
             <div className="sticky top-32 space-y-12">
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white/40 mb-6">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-6">
                   Technologies
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.tech.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 text-xs font-bold rounded-lg bg-white/5 border border-white/5 text-neutral-300 group-hover:border-white/10 transition-colors"
+                      className="px-3 py-1 text-xs font-bold rounded-lg bg-secondary border border-border text-foreground transition-colors"
                     >
                       {tech}
                     </span>
@@ -104,9 +104,9 @@ export default async function ProjectDetailsPage({
               </div>
 
               {/* Action Card */}
-              <div className="p-6 rounded-2xl border border-white/10 bg-white/[0.02] space-y-4">
-                <h4 className="text-white font-bold">Ready to see it live?</h4>
-                <p className="text-sm text-neutral-500">
+              <div className="p-6 rounded-2xl border border-border bg-card space-y-4">
+                <h4 className="text-foreground font-bold">Ready to see it live?</h4>
+                <p className="text-sm text-muted-foreground">
                   Explore the full codebase or check out the interactive demo.
                 </p>
                 <div className="pt-2 space-y-3">
@@ -115,7 +115,7 @@ export default async function ProjectDetailsPage({
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-cyan-500 text-black font-bold text-sm hover:bg-cyan-400 transition-colors"
+                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-cyan-600 dark:bg-cyan-500 text-white dark:text-black font-bold text-sm hover:bg-cyan-700 dark:hover:bg-cyan-400 transition-colors"
                     >
                       View Live Demo
                       <ExternalLink className="size-4" />
@@ -126,7 +126,7 @@ export default async function ProjectDetailsPage({
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 transition-colors"
+                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-secondary border border-border text-foreground font-bold text-sm hover:bg-accent transition-colors"
                     >
                       <Code2 className="size-4" />
                       View Repository
