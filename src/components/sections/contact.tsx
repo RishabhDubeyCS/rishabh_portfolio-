@@ -77,7 +77,7 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl font-bold mb-4"
           >
-            Get In <span className="text-cyan-600 dark:text-cyan-400">Touch</span>
+            Get In <span className="text-orange-600 dark:text-orange-400">Touch</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ export default function Contact() {
                   name="user_name"
                   placeholder="John Doe" 
                   required 
-                  className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground focus:border-cyan-500 transition-colors"
+                  className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground focus:border-orange-500 transition-colors"
                 />
               </div>
               <div className="space-y-2">
@@ -121,7 +121,7 @@ export default function Contact() {
                   type="email" 
                   placeholder="john@example.com" 
                   required 
-                  className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground focus:border-cyan-500 transition-colors"
+                  className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground focus:border-orange-500 transition-colors"
                 />
               </div>
             </div>
@@ -132,7 +132,7 @@ export default function Contact() {
                 name="subject"
                 placeholder="Project Inquiry" 
                 required 
-                className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground focus:border-cyan-500 transition-colors"
+                className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground focus:border-orange-500 transition-colors"
               />
             </div>
 
@@ -143,14 +143,14 @@ export default function Contact() {
                 rows={5}
                 required
                 placeholder="Tell me about your project..."
-                className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-cyan-500 focus:outline-none focus:ring-1 focus:ring-cyan-500 transition-colors"
+                className="w-full rounded-md border border-border bg-secondary/50 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500 transition-colors"
               />
             </div>
 
             <Button 
               type="submit" 
               disabled={loading}
-              className="w-full bg-cyan-600 dark:bg-cyan-500 hover:bg-cyan-700 dark:hover:bg-cyan-600 text-white dark:text-black font-bold py-6 text-lg transition-all transform hover:scale-[1.02]"
+              className="w-full bg-orange-600 dark:bg-orange-500 hover:bg-orange-700 dark:hover:bg-orange-600 text-white dark:text-black font-bold py-6 text-lg transition-all transform hover:scale-[1.02]"
             >
               {loading ? "Sending..." : "Send Message"}
             </Button>
@@ -171,3 +171,4 @@ export default function Contact() {
     </section>
   );
 }
+

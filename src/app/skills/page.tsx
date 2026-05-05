@@ -59,7 +59,7 @@ export default function SkillsPage() {
     : skillsData.filter(s => s.cat === activeTab);
 
   return (
-    <main className="min-h-screen bg-background text-foreground pt-24 pb-20 px-4 sm:px-6 selection:bg-cyan-500/30">
+    <main className="min-h-screen bg-background text-foreground pt-24 pb-20 px-4 sm:px-6 selection:bg-orange-500/30">
       <div className="max-w-7xl mx-auto">
         
         {/* --- HEADER SECTION --- */}
@@ -68,7 +68,7 @@ export default function SkillsPage() {
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-bold mb-4"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-bold mb-4"
             >
               <Zap className="size-3 animate-pulse" />
               <span>Production Ready Stack</span>
@@ -78,7 +78,7 @@ export default function SkillsPage() {
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-bold tracking-tight mb-4"
             >
-              Technical <span className="text-cyan-600 dark:text-cyan-400">Proficiency</span>
+              Technical <span className="text-orange-600 dark:text-orange-400">Proficiency</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -98,11 +98,11 @@ export default function SkillsPage() {
             className="grid grid-cols-2 gap-4 w-full md:w-auto"
           >
             <div className="bg-card border border-border p-4 rounded-2xl">
-              <p className="text-cyan-600 dark:text-cyan-400 font-bold text-2xl">15+</p>
+              <p className="text-orange-600 dark:text-orange-400 font-bold text-2xl">15+</p>
               <p className="text-muted-foreground text-xs uppercase tracking-widest font-bold">Tech Mastered</p>
             </div>
             <div className="bg-card border border-border p-4 rounded-2xl">
-              <p className="text-cyan-600 dark:text-cyan-400 font-bold text-2xl">MERN</p>
+              <p className="text-orange-600 dark:text-orange-400 font-bold text-2xl">MERN</p>
               <p className="text-muted-foreground text-xs uppercase tracking-widest font-bold">Core Speciality</p>
             </div>
           </motion.div>
@@ -135,8 +135,8 @@ export default function SkillsPage() {
               className={`
                 flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border
                 ${activeTab === cat.id 
-                  ? "bg-cyan-600 dark:bg-cyan-500 border-cyan-600 dark:border-cyan-500 text-white dark:text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]" 
-                  : "bg-secondary border-border text-muted-foreground hover:border-cyan-500/50 hover:text-foreground"
+                  ? "bg-orange-600 dark:bg-orange-500 border-orange-600 dark:border-orange-500 text-white dark:text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]" 
+                  : "bg-secondary border-border text-muted-foreground hover:border-orange-500/50 hover:text-foreground"
                 }
               `}
             >
@@ -158,10 +158,10 @@ export default function SkillsPage() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.2, delay: index * 0.05 }}
               >
-                <Card className={`group relative h-full bg-card border-border overflow-hidden transition-all duration-300 hover:border-cyan-500/50 ${skill.top ? "ring-1 ring-cyan-500/20" : ""}`}>
+                <Card className={`group relative h-full bg-card border-border overflow-hidden transition-all duration-300 hover:border-orange-500/50 ${skill.top ? "ring-1 ring-orange-500/20" : ""}`}>
                   <CardContent className="p-5">
                     <div className="flex justify-between items-start mb-4">
-                      <div className={`p-2 rounded-lg bg-secondary group-hover:bg-cyan-500/10 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors`}>
+                      <div className={`p-2 rounded-lg bg-secondary group-hover:bg-orange-500/10 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors`}>
                         {skill.cat === "frontend" && <Code2 className="size-5" />}
                         {skill.cat === "backend" && <Terminal className="size-5" />}
                         {skill.cat === "database" && <Database className="size-5" />}
@@ -169,20 +169,20 @@ export default function SkillsPage() {
                         {skill.cat === "devops" && <ShieldCheck className="size-5" />}
                       </div>
                       {skill.top && (
-                        <Badge className="bg-cyan-600 dark:bg-cyan-500 text-white dark:text-black font-bold text-[10px] py-0 px-2 uppercase tracking-tighter">
+                        <Badge className="bg-orange-600 dark:bg-orange-500 text-white dark:text-black font-bold text-[10px] py-0 px-2 uppercase tracking-tighter">
                           Top Choice
                         </Badge>
                       )}
                     </div>
                     
-                    <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
+                    <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors">
                       {skill.name}
                     </h3>
                     
                     <div className="flex items-center gap-2">
                       <div className="flex-1 h-1 bg-secondary rounded-full overflow-hidden">
                         <div 
-                          className={`h-full bg-cyan-600 dark:bg-cyan-500 transition-all duration-1000 ${
+                          className={`h-full bg-orange-600 dark:bg-orange-500 transition-all duration-1000 ${
                             skill.level === "Expert" ? "w-full" : 
                             skill.level === "Advanced" ? "w-[85%]" : 
                             skill.level === "Intermediate" ? "w-[60%]" : "w-[30%]"
@@ -196,7 +196,7 @@ export default function SkillsPage() {
 
                     <div className="mt-4 pt-4 border-t border-border flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <span className="text-[10px] text-muted-foreground italic">Used in 5+ projects</span>
-                      <ArrowUpRight className="size-3 text-cyan-600 dark:text-cyan-400" />
+                      <ArrowUpRight className="size-3 text-orange-600 dark:text-orange-400" />
                     </div>
                   </CardContent>
                 </Card>
@@ -210,9 +210,9 @@ export default function SkillsPage() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-32 p-8 rounded-[2.5rem] bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent border border-border text-center"
+          className="mt-32 p-8 rounded-[2.5rem] bg-gradient-to-br from-orange-500/10 via-transparent to-transparent border border-border text-center"
         >
-          <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 mb-6">
+          <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-orange-500/20 text-orange-600 dark:text-orange-400 mb-6">
             <Search className="size-8" />
           </div>
           <h2 className="text-3xl font-bold mb-4">Currently Mastering</h2>
@@ -233,3 +233,4 @@ export default function SkillsPage() {
     </main>
   );
 }
+

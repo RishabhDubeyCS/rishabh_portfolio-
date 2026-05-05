@@ -23,7 +23,7 @@ export default async function ProjectDetailsPage({
         {/* Back */}
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-cyan-600 dark:hover:text-cyan-400 transition mb-12 group"
+          className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-orange-600 dark:hover:text-orange-400 transition mb-12 group"
         >
           <ArrowLeft className="size-4 group-hover:-translate-x-1 transition-transform" />
           Back to Projects
@@ -36,7 +36,7 @@ export default async function ProjectDetailsPage({
 
         {/* Header Metadata */}
         <div className="flex flex-wrap items-center gap-6 mb-12">
-          <span className="text-[11px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+          <span className="text-[11px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
             {project.tag}
           </span>
           
@@ -67,7 +67,7 @@ export default async function ProjectDetailsPage({
         </div>
 
         {/* Description */}
-        <p className="text-xl md:text-2xl text-cyan-700/80 dark:text-cyan-200/80 mb-16 leading-relaxed font-medium">
+        <p className="text-xl md:text-2xl text-orange-700/80 dark:text-orange-200/80 mb-16 leading-relaxed font-medium">
           {project.description}
         </p>
 
@@ -115,7 +115,7 @@ export default async function ProjectDetailsPage({
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-cyan-600 dark:bg-cyan-500 text-white dark:text-black font-bold text-sm hover:bg-cyan-700 dark:hover:bg-cyan-400 transition-colors"
+                      className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-orange-600 dark:bg-orange-500 text-white dark:text-black font-bold text-sm hover:bg-orange-700 dark:hover:bg-orange-400 transition-colors"
                     >
                       View Live Demo
                       <ExternalLink className="size-4" />

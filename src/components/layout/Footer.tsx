@@ -42,8 +42,8 @@
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-6">                                                                                                     
           <Card className="overflow-hidden border border-border bg-card text-foreground shadow-none">                                                                 
             <CardHeader className="gap-3 border-b border-border pb-6">                                                                                                   
-              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.28em] text-cyan-600 dark:text-cyan-200/80">                                                               
-                <span className="h-px w-10 bg-cyan-600/70 dark:bg-cyan-300/70" />                                                                                                              
+              <div className="flex items-center gap-3 text-xs uppercase tracking-[0.28em] text-orange-600 dark:text-orange-200/80">                                                               
+                <span className="h-px w-10 bg-orange-600/70 dark:bg-orange-300/70" />                                                                                                              
                 Let&apos;s Build                                                                                                                                           
               </div>                                                                                                                                                       
               <CardTitle className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">                                                                         
@@ -63,7 +63,7 @@
                 </p>                                                                                                                                                       
                 <Button                                                                                                                                                    
                   asChild                                                                                                                                                  
-                  className="h-11 rounded-full bg-cyan-600 dark:bg-cyan-300 px-5 text-white dark:text-black hover:bg-cyan-700 dark:hover:bg-cyan-200"                                                                              
+                  className="h-11 rounded-full bg-orange-600 dark:bg-orange-300 px-5 text-white dark:text-black hover:bg-orange-700 dark:hover:bg-orange-200"                                                                              
                 >                                                                                                                                                          
                   <Link href="/#contact" scroll={false}>                                                                                                                   
                     Start a Project                                                                                                                                        
@@ -82,7 +82,7 @@
                       key={link.href}                                                                                                                                      
                       href={link.href}                                                                                                                                     
                       scroll={false}                                                                                                                                       
-                      className="text-sm text-muted-foreground transition hover:text-cyan-600 dark:hover:text-cyan-200"                                                                                     
+                      className="text-sm text-muted-foreground transition hover:text-orange-600 dark:hover:text-orange-200"                                                                                     
                     >                                                                                                                                                      
                       {link.label}                                                                                                                                         
                     </Link>                                                                                                                                                
@@ -101,7 +101,7 @@
                       href={href}                                                                                                                                          
                       target="_blank"                                                                                                                                      
                       rel="noreferrer"                                                                                                                                     
-                      className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-cyan-600 dark:hover:text-cyan-200"                                                      
+                      className="inline-flex items-center gap-2 text-sm text-muted-foreground transition hover:text-orange-600 dark:hover:text-orange-200"                                                      
                     >                                                                                                                                                      
                       <Icon className="size-4" />                                                                                                                          
                       {label}                                                                                                                                              
@@ -113,7 +113,7 @@
 
             <CardFooter className="flex flex-col items-start justify-between gap-3 border-border bg-muted/20 text-xs text-muted-foreground/60 sm:flex-row sm:items-center">     
               <p>(c) 2026 Rishabh Dubey. Built with Next.js and shadcn/ui.</p>
-              <Link href="/#home" scroll={false} className="transition hover:text-cyan-600 dark:hover:text-cyan-200">                                                                               
+              <Link href="/#home" scroll={false} className="transition hover:text-orange-600 dark:hover:text-orange-200">                                                                               
                 Back to top                                                                                                                                                
               </Link>                                                                                                                                                      
             </CardFooter>                                                                                                                                                  

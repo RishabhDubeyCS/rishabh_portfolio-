@@ -18,7 +18,7 @@ export default function ScrollStory() {
           className="2xl:text-7xl text-4xl px-8 font-bold text-center tracking-tight leading-[120%] relative z-10"
         >
           Building scalable digital products <br />
-          <span className="text-cyan-600 dark:text-cyan-400">that deliver real-world impact</span>
+          <span className="text-orange-600 dark:text-orange-400">that deliver real-world impact</span>
         </motion.h1>
       </section>
 
@@ -35,7 +35,7 @@ export default function ScrollStory() {
             className="2xl:text-7xl text-3xl px-8 font-bold text-center tracking-tight leading-[120%] relative z-10"
           >
             From idea to launch, I build <br />
-            <span className="text-cyan-700 dark:text-cyan-400">with clean code & strong architecture</span>
+            <span className="text-orange-700 dark:text-orange-400">with clean code & strong architecture</span>
           </motion.h2>
         </section>
       </div>
@@ -53,10 +53,11 @@ export default function ScrollStory() {
             className="2xl:text-7xl text-3xl px-8 font-bold text-center tracking-tight leading-[120%] relative z-10"
           >
             Constantly evolving, <br />
-            <span className="text-cyan-600 dark:text-cyan-400">learning, and pushing boundaries</span>
+            <span className="text-orange-600 dark:text-orange-400">learning, and pushing boundaries</span>
           </motion.h2>
         </section>
       </div>
     </div>
   );
 }
+

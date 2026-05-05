@@ -27,7 +27,7 @@ export function Navbar() {
           href="/"
           className="flex items-center gap-3 text-sm tracking-[0.24em] text-black/70 dark:text-white/70 uppercase transition hover:text-black dark:hover:text-white"
         >
-          <span className="flex size-10 items-center justify-center rounded-full border border-cyan-400/40 bg-cyan-400/10 text-base font-semibold tracking-normal text-cyan-600 dark:text-cyan-200">
+          <span className="flex size-10 items-center justify-center rounded-full border border-orange-400/40 bg-orange-400/10 text-base font-semibold tracking-normal text-orange-600 dark:text-orange-200">
             R
           </span>
           <span className="hidden sm:block">Rishabh Dubey</span>
@@ -53,7 +53,7 @@ export function Navbar() {
             asChild
             variant="outline"
             size="sm"
-            className="hidden lg:flex items-center gap-2 rounded-full border-cyan-500/30 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-500/10"
+            className="hidden lg:flex items-center gap-2 rounded-full border-orange-500/30 text-orange-600 dark:text-orange-400 hover:bg-orange-500/10"
           >
             <a href="/resume.pdf" download="Rishabh_Dubey_Resume.pdf">
               <Download className="size-4" />
@@ -64,7 +64,7 @@ export function Navbar() {
           <Button
             asChild
             size="sm"
-            className="hidden rounded-full bg-cyan-500 dark:bg-cyan-300 px-4 text-white dark:text-black hover:bg-cyan-600 dark:hover:bg-cyan-200 sm:inline-flex"
+            className="hidden rounded-full bg-orange-500 dark:bg-orange-300 px-4 text-white dark:text-black hover:bg-orange-600 dark:hover:bg-orange-200 sm:inline-flex"
           >
             <Link href="/#contact">
               Hire Me
@@ -91,7 +91,7 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={closeMenu}
-                className="rounded-2xl border border-black/10 dark:border-white/8 bg-black/[0.03] dark:bg-white/[0.03] px-4 py-3 text-sm font-medium text-black/80 dark:text-white/80 transition hover:border-cyan-500/30 dark:hover:border-cyan-300/30 hover:bg-cyan-500/8 dark:hover:bg-cyan-300/8 hover:text-black dark:hover:text-white"
+                className="rounded-2xl border border-black/10 dark:border-white/8 bg-black/[0.03] dark:bg-white/[0.03] px-4 py-3 text-sm font-medium text-black/80 dark:text-white/80 transition hover:border-orange-500/30 dark:hover:border-orange-300/30 hover:bg-orange-500/8 dark:hover:bg-orange-300/8 hover:text-black dark:hover:text-white"
               >
                 {item.label}
               </Link>
@@ -101,7 +101,7 @@ export function Navbar() {
               asChild
               variant="outline"
               size="sm"
-              className="mt-2 h-11 rounded-2xl border-cyan-500/30 text-cyan-600 dark:text-cyan-400 hover:bg-cyan-500/10 flex items-center gap-2"
+              className="mt-2 h-11 rounded-2xl border-orange-500/30 text-orange-600 dark:text-orange-400 hover:bg-orange-500/10 flex items-center gap-2"
             >
               <a href="/resume.pdf" download="Rishabh_Dubey_Resume.pdf" onClick={closeMenu}>
                 <Download className="size-4" />
@@ -112,7 +112,7 @@ export function Navbar() {
             <Button
               asChild
               size="sm"
-              className="mt-2 h-11 rounded-2xl bg-cyan-500 dark:bg-cyan-300 text-white dark:text-black hover:bg-cyan-600 dark:hover:bg-cyan-200"
+              className="mt-2 h-11 rounded-2xl bg-orange-500 dark:bg-orange-300 text-white dark:text-black hover:bg-orange-600 dark:hover:bg-orange-200"
             >
               <Link href="/#contact" onClick={closeMenu}>
                 Hire Me
@@ -124,3 +124,4 @@ export function Navbar() {
     </header>
   );
 }
+

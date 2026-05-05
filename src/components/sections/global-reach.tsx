@@ -12,7 +12,7 @@ export default function GlobalReach() {
       <div className="max-w-6xl mx-auto text-center px-4 mb-16">
         <h2 className="font-bold text-3xl md:text-5xl text-foreground">
           Building{" "}
-          <span className="text-cyan-600 dark:text-cyan-400">
+          <span className="text-orange-600 dark:text-orange-400">
             {"Global Solutions".split("").map((char, idx) => (
               <motion.span
                 key={idx}
@@ -66,3 +66,4 @@ export default function GlobalReach() {
     </section>
   );
 }
+

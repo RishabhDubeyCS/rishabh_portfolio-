@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { 
   Code2, 
   Server, 
@@ -15,53 +16,86 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6">
       
       {/* ================= HERO / INTRO SECTION ================= */}
-      <div className="max-w-4xl mx-auto mb-20">
-        <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
-          About <span className="text-cyan-600 dark:text-cyan-400">Me</span>
-        </h1>
-        
-        <div className="space-y-2 mb-10">
-          <h2 className="text-xl md:text-2xl font-semibold text-cyan-600 dark:text-cyan-300">
-            Full Stack Developer | Building scalable web apps with MERN & Next.js
-          </h2>
-          <p className="text-lg text-foreground/80 font-medium">
-            I turn ideas into fast, scalable, and production-ready web applications 🚀
-          </p>
-          <p className="text-muted-foreground">
-            Helping startups and businesses build modern, high-performance web solutions
-          </p>
-        </div>
+      <div className="max-w-6xl mx-auto mb-20">
+        <div className="flex flex-col lg:flex-row gap-12 items-start">
+          {/* Profile Image Column */}
+          <div className="w-full lg:w-1/3 flex flex-col items-center">
+            <div className="relative group">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-orange-600 to-orange-400 opacity-75 blur-md group-hover:opacity-100 transition duration-500"></div>
+              <div className="relative overflow-hidden rounded-2xl border-2 border-background bg-muted shadow-xl aspect-square w-full max-w-[350px]">
+                <Image
+                  src="/Rishabh_dubey_img.jpeg"
+                  alt="Rishabh Dubey profile photo"
+                  fill
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  priority
+                />
+              </div>
+            </div>
+            
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+               <span className="px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-bold">
+                 Developer
+               </span>
+               <span className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 text-xs font-bold">
+                 Designer
+               </span>
+               <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+                 Innovator
+               </span>
+            </div>
+          </div>
 
-        <div className="prose prose-cyan dark:prose-invert max-w-none space-y-6 text-foreground/80 text-lg leading-relaxed">
-          <p>
-            I’m a Full Stack Developer currently pursuing B.Tech in Computer Science at SAGE University Bhopal, 
-            specializing in building scalable and production-ready web applications using the MERN stack and Next.js. 
-            I have hands-on experience developing real-world projects including a ChatGPT-style AI application, 
-            secure authentication systems, and API-driven platforms with clean architecture.
-          </p>
-          <p>
-            I focus on writing efficient, maintainable code and delivering responsive, user-friendly interfaces. 
-            Beyond development, I have practical exposure to REST APIs, database design (MongoDB & MySQL), 
-            and basic DevOps practices like Docker and CI/CD.
-          </p>
-          <p>
-            I’m actively seeking opportunities where I can contribute to real-world products, 
-            solve meaningful problems, and deliver high-quality solutions — whether as a developer 
-            in a growing team or by helping clients build fast, scalable web applications.
-          </p>
+          {/* Text Content Column */}
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
+              About <span className="text-orange-600 dark:text-orange-400">Me</span>
+            </h1>
+            
+            <div className="space-y-2 mb-10">
+              <h2 className="text-xl md:text-2xl font-semibold text-orange-600 dark:text-orange-300">
+                Full Stack Developer | Building scalable web apps with MERN & Next.js
+              </h2>
+              <p className="text-lg text-foreground/80 font-medium">
+                I turn ideas into fast, scalable, and production-ready web applications 🚀
+              </p>
+              <p className="text-muted-foreground">
+                Helping startups and businesses build modern, high-performance web solutions
+              </p>
+            </div>
+
+            <div className="prose prose-orange dark:prose-invert max-w-none space-y-6 text-foreground/80 text-lg leading-relaxed">
+              <p>
+                I’m a Full Stack Developer currently pursuing B.Tech in Computer Science at SAGE University Bhopal, 
+                specializing in building scalable and production-ready web applications using the MERN stack and Next.js. 
+                I have hands-on experience developing real-world projects including a ChatGPT-style AI application, 
+                secure authentication systems, and API-driven platforms with clean architecture.
+              </p>
+              <p>
+                I focus on writing efficient, maintainable code and delivering responsive, user-friendly interfaces. 
+                Beyond development, I have practical exposure to REST APIs, database design (MongoDB & MySQL), 
+                and basic DevOps practices like Docker and CI/CD.
+              </p>
+              <p>
+                I’m actively seeking opportunities where I can contribute to real-world products, 
+                solve meaningful problems, and deliver high-quality solutions — whether as a developer 
+                in a growing team or by helping clients build fast, scalable web applications.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* ================= JOURNEY SECTION ================= */}
       <div className="mt-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-cyan-500 dark:border-cyan-400 pl-4">My Journey as a Student & Developer</h2>
+        <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-orange-500 dark:border-orange-400 pl-4">My Journey as a Student & Developer</h2>
 
         <div className="relative border-l border-border ml-3 pl-8 space-y-12">
           
           {/* Milestone 1 */}
           <div className="relative">
-            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-cyan-600 dark:bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
-            <h3 className="text-cyan-600 dark:text-cyan-300 font-bold text-xl mb-2">The Spark (2023)</h3>
+            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-orange-600 dark:bg-orange-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
+            <h3 className="text-orange-600 dark:text-orange-300 font-bold text-xl mb-2">The Spark (2023)</h3>
             <p className="text-muted-foreground leading-relaxed">
               My journey began when I joined <span className="text-foreground font-medium">SAGE University, Bhopal</span> for my B.Tech in CSE. 
               Like many, I started with curiosity about how the internet works. What began as writing simple &quot;Hello World&quot; 
@@ -71,8 +105,8 @@ export default function AboutPage() {
 
           {/* Milestone 2 */}
           <div className="relative">
-            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-secondary border-2 border-cyan-600 dark:border-cyan-500"></div>
-            <h3 className="text-cyan-600 dark:text-cyan-300 font-bold text-xl mb-2">Diving into the MERN Stack</h3>
+            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-secondary border-2 border-orange-600 dark:border-orange-500"></div>
+            <h3 className="text-orange-600 dark:text-orange-300 font-bold text-xl mb-2">Diving into the MERN Stack</h3>
             <p className="text-muted-foreground leading-relaxed">
               I realized that to build real impact, I needed to master the full cycle of development. 
               I dedicated months to learning the <span className="text-foreground font-medium">MERN stack (MongoDB, Express, React, Node)</span>. 
@@ -83,8 +117,8 @@ export default function AboutPage() {
 
           {/* Milestone 3 */}
           <div className="relative">
-            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-secondary border-2 border-cyan-600 dark:border-cyan-500"></div>
-            <h3 className="text-cyan-600 dark:text-cyan-300 font-bold text-xl mb-2">Building Real-World Impact</h3>
+            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-secondary border-2 border-orange-600 dark:border-orange-500"></div>
+            <h3 className="text-orange-600 dark:text-orange-300 font-bold text-xl mb-2">Building Real-World Impact</h3>
             <p className="text-muted-foreground leading-relaxed">
               I moved beyond tutorials to build production-ready projects. Developing a 
               <span className="text-foreground font-medium"> ChatGPT-style AI application</span> taught me how to integrate complex APIs and 
@@ -96,8 +130,8 @@ export default function AboutPage() {
 
           {/* Milestone 4 */}
           <div className="relative">
-            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-secondary border-2 border-cyan-600 dark:border-cyan-500"></div>
-            <h3 className="text-cyan-600 dark:text-cyan-300 font-bold text-xl mb-2">Present & Beyond</h3>
+            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-secondary border-2 border-orange-600 dark:border-orange-500"></div>
+            <h3 className="text-orange-600 dark:text-orange-300 font-bold text-xl mb-2">Present & Beyond</h3>
             <p className="text-muted-foreground leading-relaxed">
               Today, I am bridging the gap between academic excellence and industry standards. 
               I am deepening my expertise in <span className="text-foreground font-medium">Next.js</span> and exploring the 
@@ -114,14 +148,14 @@ export default function AboutPage() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Technical <span className="text-cyan-600 dark:text-cyan-400">Arsenal</span>
+              Technical <span className="text-orange-600 dark:text-orange-400">Arsenal</span>
             </h2>
             <p className="text-muted-foreground text-lg">
               A curated list of technologies I use to build high-performance 
               applications, from frontend aesthetics to backend logic.
             </p>
           </div>
-          <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-mono text-sm bg-cyan-500/5 px-4 py-2 rounded-full border border-cyan-500/20">
+          <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 font-mono text-sm bg-orange-500/5 px-4 py-2 rounded-full border border-orange-500/20">
             <Sparkles className="size-4 animate-pulse" />
             <span>Always Learning New Tech</span>
           </div>
@@ -131,8 +165,8 @@ export default function AboutPage() {
           
           {/* Frontend - Large Bento */}
           <BentoSkillCard 
-            className="md:col-span-3 lg:col-span-4 lg:row-span-2 bg-gradient-to-br from-cyan-500/10 to-transparent"
-            icon={<Code2 className="size-8 text-cyan-600 dark:text-cyan-400" />}
+            className="md:col-span-3 lg:col-span-4 lg:row-span-2 bg-gradient-to-br from-orange-500/10 to-transparent"
+            icon={<Code2 className="size-8 text-orange-600 dark:text-orange-400" />}
             title="Frontend Mastery"
             skills={["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Shadcn UI", "Redux Toolkit"]}
             description="Crafting immersive user experiences with modern frameworks and pixel-perfect responsiveness."
@@ -166,8 +200,8 @@ export default function AboutPage() {
 
           {/* DevOps - Wide Bento */}
           <BentoSkillCard 
-            className="md:col-span-4 lg:col-span-5 bg-gradient-to-br from-blue-500/10 to-transparent"
-            icon={<Globe className="size-8 text-blue-600 dark:text-blue-400" />}
+            className="md:col-span-4 lg:col-span-5 bg-gradient-to-br from-orange-500/10 to-transparent"
+            icon={<Globe className="size-8 text-orange-600 dark:text-orange-400" />}
             title="DevOps & Cloud"
             skills={["Docker", "CI/CD", "Vercel", "AWS (Basic)", "Git/GitHub"]}
           />
@@ -191,15 +225,15 @@ export default function AboutPage() {
 
         <div className="max-w-3xl mx-auto">
           <div className="p-8 rounded-2xl border border-border bg-card relative overflow-hidden group hover:bg-accent/50 transition-all duration-500">
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-cyan-600 dark:bg-cyan-500 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
+            <div className="absolute top-0 left-0 w-1.5 h-full bg-orange-600 dark:bg-orange-500 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
               <div>
-                <h3 className="text-cyan-600 dark:text-cyan-300 font-bold text-2xl mb-1">
+                <h3 className="text-orange-600 dark:text-orange-300 font-bold text-2xl mb-1">
                   Bachelor of Technology
                 </h3>
                 <p className="text-muted-foreground font-medium">Computer Science Engineering</p>
               </div>
-              <div className="px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-sm font-bold">
+              <div className="px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 text-sm font-bold">
                 2023 — 2027
               </div>
             </div>
@@ -233,11 +267,11 @@ function BentoSkillCard({
     <div className={`
       relative group p-6 rounded-3xl border border-border overflow-hidden 
       flex flex-col justify-between transition-all duration-500 bg-card
-      hover:border-cyan-500/30 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)]
+      hover:border-orange-500/30 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)]
       ${className}
     `}>
       {/* Background Glow Effect */}
-      <div className="absolute -right-10 -top-10 size-32 bg-cyan-500/5 blur-3xl rounded-full group-hover:bg-cyan-500/10 transition-colors duration-500"></div>
+      <div className="absolute -right-10 -top-10 size-32 bg-orange-500/5 blur-3xl rounded-full group-hover:bg-orange-500/10 transition-colors duration-500"></div>
       
       <div className="relative z-10">
         <div className="mb-4 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
@@ -258,7 +292,7 @@ function BentoSkillCard({
         {skills.map((skill) => (
           <span 
             key={skill}
-            className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-lg bg-secondary border border-border text-muted-foreground group-hover:border-cyan-500/20 group-hover:text-foreground transition-all duration-300"
+            className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-lg bg-secondary border border-border text-muted-foreground group-hover:border-orange-500/20 group-hover:text-foreground transition-all duration-300"
           >
             {skill}
           </span>
@@ -267,3 +301,4 @@ function BentoSkillCard({
     </div>
   );
 }
+

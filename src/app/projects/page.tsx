@@ -13,7 +13,7 @@ export default function ProjectsPage() {
         {/* Heading */}
         <div className="mb-14">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-4 tracking-tight">
-            My <span className="text-cyan-600 dark:text-cyan-400">Projects</span>
+            My <span className="text-orange-600 dark:text-orange-400">Projects</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             A collection of real-world applications showcasing full-stack development,
@@ -26,15 +26,15 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <div
               key={project.slug}
-              className="group p-6 rounded-2xl border border-border bg-card transition-all duration-300 hover:bg-accent/50 hover:border-cyan-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/10 flex flex-col"
+              className="group p-6 rounded-2xl border border-border bg-card transition-all duration-300 hover:bg-accent/50 hover:border-orange-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/10 flex flex-col"
             >
               {/* Tag */}
-              <span className="inline-block self-start mb-3 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-300 border border-cyan-500/20">
+              <span className="inline-block self-start mb-3 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-300 border border-orange-500/20">
                 {project.tag}
               </span>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-foreground group-hover:text-cyan-600 dark:group-hover:text-cyan-200 transition">
+              <h3 className="text-xl font-bold text-foreground group-hover:text-orange-600 dark:group-hover:text-orange-200 transition">
                 {project.title}
               </h3>
 
@@ -64,7 +64,7 @@ export default function ProjectsPage() {
               <div className="mt-8 flex items-center justify-between gap-4">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="inline-flex items-center gap-2 text-cyan-600 dark:text-cyan-400 text-xs font-bold uppercase tracking-widest hover:text-cyan-700 dark:hover:text-cyan-200 transition-colors group/link"
+                  className="inline-flex items-center gap-2 text-orange-600 dark:text-orange-400 text-xs font-bold uppercase tracking-widest hover:text-orange-700 dark:hover:text-orange-200 transition-colors group/link"
                 >
                   Details
                   <ArrowRight className="size-3 group-hover/link:translate-x-1 transition-transform" />
@@ -102,3 +102,4 @@ export default function ProjectsPage() {
     </div>
   );
 }
+

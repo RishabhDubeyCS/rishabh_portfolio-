@@ -17,8 +17,8 @@ export const certificates: Certificate[] = [
     desc: "Sharpened my ability to turn data into insights and measure real business impact through user interaction analysis.",
     img: "https://images.unsplash.com/photo-1551288049-bbda38a594a0?auto=format&fit=crop&q=80&w=800",
     tag: "Analytics",
-    icon: <Globe className="size-5 text-blue-400" />,
-    color: "from-blue-500/20",
+    icon: <Globe className="size-5 text-orange-400" />,
+    color: "from-orange-500/20",
     link: "#",
   },
   {
@@ -44,8 +44,8 @@ export const certificates: Certificate[] = [
     desc: "Hands-on experience with LLMs and Generative models conducted by industry experts from IIT Delhi.",
     img: "https://images.unsplash.com/photo-1620712943543-bcc4638d9f8d?auto=format&fit=crop&q=80&w=800",
     tag: "GenAI",
-    icon: <Zap className="size-5 text-cyan-400" />,
-    color: "from-cyan-500/20",
+    icon: <Zap className="size-5 text-orange-400" />,
+    color: "from-orange-500/20",
     link: "#",
   },
   {
@@ -58,3 +58,4 @@ export const certificates: Certificate[] = [
     link: "#",
   },
 ];
+
