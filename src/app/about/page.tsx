@@ -143,77 +143,43 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* ================= SKILLS SECTION (BENTO GRID) ================= */}
-      <div className="mt-32 max-w-7xl mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Technical <span className="text-orange-600 dark:text-orange-400">Arsenal</span>
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              A curated list of technologies I use to build high-performance 
-              applications, from frontend aesthetics to backend logic.
-            </p>
+      {/* ================= TECHNICAL ARSENAL (AI-INSPIRED) ================= */}
+      <div className="mt-32 max-w-6xl mx-auto px-4">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/5 border border-orange-500/10 text-orange-600 dark:text-orange-400 text-xs font-bold mb-4">
+            <Sparkles className="size-3 animate-pulse" />
+            <span>Technical Capabilities</span>
           </div>
-          <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 font-mono text-sm bg-orange-500/5 px-4 py-2 rounded-full border border-orange-500/20">
-            <Sparkles className="size-4 animate-pulse" />
-            <span>Always Learning New Tech</span>
-          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+            Technical <span className="text-orange-600 dark:text-orange-400">Arsenal</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            A structured collection of technologies I leverage to build 
+            intelligent, high-performance digital solutions.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-4 auto-rows-[180px]">
-          
-          {/* Frontend - Large Bento */}
-          <BentoSkillCard 
-            className="md:col-span-3 lg:col-span-4 lg:row-span-2 bg-gradient-to-br from-orange-500/10 to-transparent"
-            icon={<Code2 className="size-8 text-orange-600 dark:text-orange-400" />}
-            title="Frontend Mastery"
-            skills={["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Shadcn UI", "Redux Toolkit"]}
-            description="Crafting immersive user experiences with modern frameworks and pixel-perfect responsiveness."
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <SkillCategory 
+            title="Frontend Development"
+            icon={<Code2 className="size-5" />}
+            skills={["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Redux"]}
           />
-
-          {/* Backend - Wide Bento */}
-          <BentoSkillCard 
-            className="md:col-span-3 lg:col-span-5 bg-gradient-to-br from-purple-500/10 to-transparent"
-            icon={<Server className="size-8 text-purple-600 dark:text-purple-400" />}
+          <SkillCategory 
             title="Backend Engineering"
+            icon={<Server className="size-5" />}
             skills={["Node.js", "Express", "Java", "Python", "REST APIs", "Socket.io"]}
-            description="Architecting robust server-side logic and scalable microservices."
           />
-
-          {/* Database - Square Bento */}
-          <BentoSkillCard 
-            className="md:col-span-2 lg:col-span-3 bg-gradient-to-br from-emerald-500/10 to-transparent"
-            icon={<Database className="size-8 text-emerald-600 dark:text-emerald-400" />}
-            title="Databases"
-            skills={["MongoDB", "PostgreSQL", "MySQL", "Redis"]}
+          <SkillCategory 
+            title="Intelligence & Data"
+            icon={<Cpu className="size-5" />}
+            skills={["OpenAI", "LangChain", "Vector DBs", "MongoDB", "PostgreSQL"]}
           />
-
-          {/* AI / Modern Tools - Square Bento */}
-          <BentoSkillCard 
-            className="md:col-span-2 lg:col-span-3 lg:row-span-2 bg-gradient-to-br from-orange-500/10 to-transparent"
-            icon={<Cpu className="size-8 text-orange-600 dark:text-orange-400" />}
-            title="AI & Intelligent Tools"
-            skills={["OpenAI API", "LangChain", "Vector DBs", "Claude API"]}
-            description="Integrating LLMs and AI agents into modern web workflows."
+          <SkillCategory 
+            title="Tools & DevOps"
+            icon={<Layers className="size-5" />}
+            skills={["Git/GitHub", "Docker", "Vercel", "AWS", "CI/CD", "Postman"]}
           />
-
-          {/* DevOps - Wide Bento */}
-          <BentoSkillCard 
-            className="md:col-span-4 lg:col-span-5 bg-gradient-to-br from-orange-500/10 to-transparent"
-            icon={<Globe className="size-8 text-orange-600 dark:text-orange-400" />}
-            title="DevOps & Cloud"
-            skills={["Docker", "CI/CD", "Vercel", "AWS (Basic)", "Git/GitHub"]}
-          />
-
-          {/* Principles - Slim Bento */}
-          <BentoSkillCard 
-            className="md:col-span-6 lg:col-span-4 bg-gradient-to-br from-pink-500/10 to-transparent"
-            icon={<Layers className="size-8 text-pink-600 dark:text-pink-400" />}
-            title="Architecture"
-            skills={["Clean Code", "MVC", "System Design", "Agile"]}
-          />
-
         </div>
       </div>
 
@@ -249,50 +215,29 @@ export default function AboutPage() {
   );
 }
 
-/* 🔥 New & Attractive Bento Skill Card */
-function BentoSkillCard({ 
+/* 🔥 Minimalist & AI-Inspired Skill Category */
+function SkillCategory({ 
   title, 
   skills, 
-  icon, 
-  description, 
-  className 
+  icon 
 }: { 
   title: string; 
   skills: string[]; 
-  icon: React.ReactNode; 
-  description?: string;
-  className?: string;
+  icon: React.ReactNode;
 }) {
   return (
-    <div className={`
-      relative group p-6 rounded-3xl border border-border overflow-hidden 
-      flex flex-col justify-between transition-all duration-500 bg-card
-      hover:border-orange-500/30 hover:shadow-[0_0_30px_rgba(6,182,212,0.05)]
-      ${className}
-    `}>
-      {/* Background Glow Effect */}
-      <div className="absolute -right-10 -top-10 size-32 bg-orange-500/5 blur-3xl rounded-full group-hover:bg-orange-500/10 transition-colors duration-500"></div>
-      
-      <div className="relative z-10">
-        <div className="mb-4 transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+    <div className="p-6 rounded-2xl border border-border bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-orange-500/30 hover:bg-accent/5">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="p-2 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400">
           {icon}
         </div>
-        <h3 className="text-foreground font-bold text-xl mb-2 flex items-center gap-2">
-          {title}
-          <ChevronRight className="size-4 text-foreground/0 group-hover:text-foreground/50 group-hover:translate-x-1 transition-all" />
-        </h3>
-        {description && (
-          <p className="text-muted-foreground text-sm mb-4 leading-relaxed group-hover:text-foreground/80 transition-colors">
-            {description}
-          </p>
-        )}
+        <h3 className="text-lg font-bold text-foreground tracking-tight">{title}</h3>
       </div>
-
-      <div className="relative z-10 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
           <span 
             key={skill}
-            className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-lg bg-secondary border border-border text-muted-foreground group-hover:border-orange-500/20 group-hover:text-foreground transition-all duration-300"
+            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-secondary/50 border border-border text-muted-foreground hover:border-orange-500/20 hover:text-foreground transition-all"
           >
             {skill}
           </span>

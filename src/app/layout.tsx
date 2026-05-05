@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ReactLenis } from "lenis/react";
+import { Chatbot } from "@/components/ai-chatbot";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -43,6 +44,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <Footer />
+            <Chatbot />
           </ReactLenis>
         </ThemeProvider>
       </body>
