@@ -1,170 +1,115 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ExternalLink, Award, Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Award, Search, CheckCircle2, Trophy } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { certificates, Certificate } from "@/lib/certificates-data";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
-function CertificateCard({ item }: { item: Certificate }) {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
-
-  return (
-    <motion.div variants={itemVariants} className="h-full">
-      <Card className="group relative h-full flex flex-col overflow-hidden bg-card border-border backdrop-blur-sm transition-all duration-500 hover:border-orange-500/40 hover:shadow-[0_0_40px_rgba(6,182,212,0.1)]">
-        
-        {/* Visual Accent */}
-        <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${item.color} to-transparent blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-
-        {/* Image Holder */}
-        <CardHeader className="p-0 relative h-56 overflow-hidden bg-muted">
-          {!imageLoaded && !imageError && (
-            <div className="absolute inset-0 flex items-center justify-center bg-muted z-10">
-              <Loader2 className="size-8 text-orange-500/50 animate-spin" />
-            </div>
-          )}
-          
-          {imageError ? (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-muted text-muted-foreground gap-2">
-              <Award className="size-10 opacity-20" />
-              <span className="text-xs font-medium uppercase tracking-wider">Credential Image</span>
-            </div>
-          ) : (
-            <Image
-              src={item.img}
-              alt={item.title}
-              fill
-              className={`object-cover dark:grayscale dark:group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-              onLoad={() => setImageLoaded(true)}
-              onError={() => setImageError(true)}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          )}
-          
-          <div className="absolute inset-0 bg-black/40 dark:bg-black/40 group-hover:bg-black/10 transition-colors duration-500"></div>
-          
-          {/* Tag & Icon Overlay */}
-          <div className="absolute top-4 left-4 right-4 flex justify-between items-start z-10">
-             <div className="p-2 rounded-xl bg-background/60 backdrop-blur-md border border-border text-foreground shadow-xl">
-               {item.icon}
-             </div>
-             <Badge variant="outline" className="bg-background/60 backdrop-blur-md text-orange-600 dark:text-orange-400 border-orange-500/30 px-3 py-1 text-[10px] font-bold uppercase tracking-wider">
-               {item.tag}
-             </Badge>
-          </div>
-        </CardHeader>
-
-        {/* Body Content */}
-        <CardContent className="p-6 flex-1 flex flex-col">
-          <CardTitle className="text-xl text-foreground group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors mb-3 line-clamp-2">
-            {item.title}
-          </CardTitle>
-          <CardDescription className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
-            {item.desc}
-          </CardDescription>
-        </CardContent>
-
-        {/* Footer Link */}
-        <CardFooter className="p-6 pt-0 mt-auto">
-          <a href={item.link} target="_blank" rel="noopener noreferrer" className="w-full">
-            <Button 
-              className="w-full bg-secondary hover:bg-orange-600 dark:hover:bg-orange-500 hover:text-white dark:hover:text-black text-foreground border border-border hover:border-orange-600 dark:hover:border-orange-500 transition-all duration-300 flex items-center justify-center gap-2 group/btn py-6 rounded-xl font-bold"
-            >
-              <span>Verify Credential</span>
-              <ExternalLink className="size-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-            </Button>
-          </a>
-        </CardFooter>
-      </Card>
-    </motion.div>
-  );
-}
-
 export default function CertificatesPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredCertificates = certificates.filter(cert => 
+    cert.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    cert.tag.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <main className="min-h-screen bg-background pt-24 pb-20 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
+    <main className="min-h-screen bg-background pt-32 pb-20 px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto">
         
-        {/* Heading Section */}
-        <div className="text-center mb-20 relative">
-          <div className="absolute inset-x-0 -top-10 h-32 bg-orange-500/5 blur-[100px] -z-10 rounded-full"></div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 text-sm font-bold mb-6"
-          >
-            <Award className="size-4" />
-            <span>Learning Milestones</span>
-          </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight"
-          >
-            Certifications & <span className="text-orange-600 dark:text-orange-400">Achievements</span>
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-muted-foreground max-w-2xl mx-auto text-lg"
-          >
-            A validation of my technical skills and dedication to continuous improvement 
-            in Full Stack Development, Cloud, and AI.
-          </motion.p>
+        {/* --- HEADER SECTION --- */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 mb-16">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tighter">
+              Professional <span className="text-orange-600 dark:text-orange-400">Credentials.</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              A record of technical certifications and academic milestones demonstrating 
+              expertise in modern software engineering and data science.
+            </p>
+          </div>
+          
+          <div className="relative w-full md:w-[300px]">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+            <Input 
+              placeholder="Search certificates..." 
+              className="pl-10 w-full bg-secondary/50 border-border focus:ring-orange-500/20"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
         </div>
 
-        {/* Grid Section */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {certificates.map((item, index) => (
-            <CertificateCard key={index} item={item} />
-          ))}
-        </motion.div>
+        {/* --- CERTIFICATES LIST --- */}
+        <div className="grid grid-cols-1 gap-4">
+          <AnimatePresence mode="popLayout">
+            {filteredCertificates.map((cert, index) => (
+              <motion.div
+                layout
+                key={cert.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                className="group relative flex flex-col md:flex-row items-start md:items-center gap-6 p-6 rounded-2xl bg-card border border-border hover:border-orange-500/40 transition-all duration-300"
+              >
+                {/* Icon Column */}
+                <div className="p-4 rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform">
+                  <Trophy className="size-6" />
+                </div>
+
+                {/* Content Column */}
+                <div className="flex-1 space-y-2">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-xl font-bold text-foreground group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                      {cert.title}
+                    </h3>
+                    <Badge variant="secondary" className="bg-secondary/50 text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 border-none">
+                      {cert.tag}
+                    </Badge>
+                  </div>
+                  <p className="text-muted-foreground text-sm max-w-2xl leading-relaxed">
+                    {cert.desc}
+                  </p>
+                </div>
+
+                {/* Action Column */}
+                <div className="w-full md:w-auto pt-4 md:pt-0">
+                  <a 
+                    href={cert.link} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-secondary hover:bg-orange-600 dark:hover:bg-orange-500 hover:text-white dark:hover:text-black transition-all text-xs font-bold uppercase tracking-widest group/link"
+                  >
+                    Verify
+                    <ExternalLink className="size-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                  </a>
+                </div>
+
+                {/* Verification Checkmark (Visual Flair) */}
+                <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                  <CheckCircle2 className="size-4 text-orange-600 dark:text-orange-400" />
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {filteredCertificates.length === 0 && (
+          <div className="text-center py-24 border border-dashed border-border rounded-3xl">
+            <p className="text-muted-foreground">No certifications found matching your search.</p>
+          </div>
+        )}
 
         {/* Bottom CTA */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="mt-20 text-center"
-        >
-          <p className="text-neutral-500 text-sm">
-            Curious about more? Check out my <Link href="/projects" className="text-orange-400 hover:underline">Projects</Link> to see these skills in action.
+        <div className="mt-20 text-center text-muted-foreground">
+          <p className="text-sm">
+            Continuous learning is part of my engineering DNA. More credentials incoming soon.
           </p>
-        </motion.div>
+        </div>
 
       </div>
     </main>

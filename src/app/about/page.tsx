@@ -79,22 +79,22 @@ export default function AboutPage() {
       {/* ================= JOURNEY & EDUCATION ================= */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div>
-          <h2 className="text-2xl font-bold mb-10 tracking-tight">Experience & Journey</h2>
+          <h2 className="text-2xl font-bold mb-10 tracking-tight">Learning Journey</h2>
           <div className="space-y-12">
             <TimelineItem 
               year="2024"
-              title="Building Production Apps"
-              description="Focused on end-to-end applications including AI-driven platforms and secure SaaS architectures."
+              title="Advanced Project Development"
+              description="Built complex, full-stack applications including AI-driven platforms and secure SaaS architectures as part of my deep-dive into Next.js."
             />
             <TimelineItem 
               year="2023"
-              title="MERN Specialization"
-              description="Deep dive into full-stack development, mastering asynchronous patterns and database design."
+              title="Full Stack Specialization"
+              description="Focused on mastering the MERN stack through rigorous project-based learning and academic coursework."
             />
             <TimelineItem 
               year="2022"
-              title="Foundations"
-              description="Started B.Tech CSE, building solid fundamentals in C, Java, and computer science theory."
+              title="Computer Science Foundations"
+              description="Started B.Tech CSE, building solid fundamentals in C, Java, and computer science theory at SAGE University."
             />
           </div>
         </div>

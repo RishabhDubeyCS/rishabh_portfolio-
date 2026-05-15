@@ -11,9 +11,9 @@ import {
   ShieldCheck, 
   Zap, 
   Search,
-  ArrowUpRight
+  CheckCircle2
 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import Marquee from "@/components/magicui/marquee";
 
@@ -27,22 +27,22 @@ const categories = [
 ];
 
 const skillsData = [
-  { name: "React / Next.js", cat: "frontend", level: "Expert", top: true },
-  { name: "TypeScript", cat: "frontend", level: "Expert", top: true },
-  { name: "Node.js", cat: "backend", level: "Expert", top: true },
-  { name: "Express", cat: "backend", level: "Expert" },
-  { name: "MongoDB", cat: "database", level: "Expert", top: true },
-  { name: "PostgreSQL", cat: "database", level: "Intermediate" },
-  { name: "OpenAI API", cat: "ai", level: "Advanced", top: true },
-  { name: "LangChain", cat: "ai", level: "Intermediate" },
-  { name: "Tailwind CSS", cat: "frontend", level: "Expert" },
-  { name: "Framer Motion", cat: "frontend", level: "Advanced" },
-  { name: "Docker", cat: "devops", level: "Intermediate" },
-  { name: "AWS", cat: "devops", level: "Basic" },
-  { name: "Python", cat: "backend", level: "Advanced" },
-  { name: "Java", cat: "backend", level: "Advanced" },
-  { name: "Redis", cat: "database", level: "Intermediate" },
-  { name: "GraphQL", cat: "backend", level: "Intermediate" },
+  { name: "React / Next.js", cat: "frontend", level: "Expert", score: 95 },
+  { name: "TypeScript", cat: "frontend", level: "Expert", score: 90 },
+  { name: "Node.js", cat: "backend", level: "Expert", score: 92 },
+  { name: "Express", cat: "backend", level: "Expert", score: 88 },
+  { name: "MongoDB", cat: "database", level: "Expert", score: 90 },
+  { name: "PostgreSQL", cat: "database", level: "Intermediate", score: 70 },
+  { name: "OpenAI API", cat: "ai", level: "Advanced", score: 85 },
+  { name: "LangChain", cat: "ai", level: "Intermediate", score: 65 },
+  { name: "Tailwind CSS", cat: "frontend", level: "Expert", score: 95 },
+  { name: "Framer Motion", cat: "frontend", level: "Advanced", score: 80 },
+  { name: "Docker", cat: "devops", level: "Intermediate", score: 60 },
+  { name: "AWS", cat: "devops", level: "Basic", score: 40 },
+  { name: "Python", cat: "backend", level: "Advanced", score: 82 },
+  { name: "Java", cat: "backend", level: "Advanced", score: 78 },
+  { name: "Redis", cat: "database", level: "Intermediate", score: 65 },
+  { name: "GraphQL", cat: "backend", level: "Intermediate", score: 60 },
 ];
 
 const techLogos = [
@@ -53,17 +53,20 @@ const techLogos = [
 
 export default function SkillsPage() {
   const [activeTab, setActiveTab] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredSkills = activeTab === "all" 
-    ? skillsData 
-    : skillsData.filter(s => s.cat === activeTab);
+  const filteredSkills = skillsData.filter(skill => {
+    const matchesTab = activeTab === "all" || skill.cat === activeTab;
+    const matchesSearch = skill.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesTab && matchesSearch;
+  });
 
   return (
-    <main className="min-h-screen bg-background text-foreground pt-24 pb-20 px-4 sm:px-6 selection:bg-orange-500/30">
-      <div className="max-w-7xl mx-auto">
+    <main className="min-h-screen bg-background pt-32 pb-20 px-4 sm:px-6 selection:bg-orange-500/30">
+      <div className="max-w-6xl mx-auto">
         
         {/* --- HEADER SECTION --- */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
           <div className="max-w-2xl">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
@@ -71,45 +74,31 @@ export default function SkillsPage() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-bold mb-4"
             >
               <Zap className="size-3 animate-pulse" />
-              <span>Production Ready Stack</span>
+              <span>Professional Proficiency</span>
             </motion.div>
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-bold tracking-tight mb-4"
-            >
-              Technical <span className="text-orange-600 dark:text-orange-400">Proficiency</span>
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-muted-foreground text-lg"
-            >
-              A deep dive into my core competencies. From building intelligent AI interfaces 
-              to architecting robust backend systems.
-            </motion.p>
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tighter">
+              Technical <span className="text-orange-600 dark:text-orange-400">Stack.</span>
+            </h1>
+            <p className="text-xl text-muted-foreground leading-relaxed">
+              A comprehensive breakdown of my engineering core competencies, 
+              ranging from modern frontend frameworks to scalable backend architectures.
+            </p>
           </div>
 
-          {/* Quick Stats for HR */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="grid grid-cols-2 gap-4 w-full md:w-auto"
-          >
-            <div className="bg-card border border-border p-4 rounded-2xl">
-              <p className="text-orange-600 dark:text-orange-400 font-bold text-2xl">15+</p>
-              <p className="text-muted-foreground text-xs uppercase tracking-widest font-bold">Tech Mastered</p>
+          <div className="grid grid-cols-2 gap-4 w-full lg:w-auto">
+            <div className="p-6 rounded-2xl bg-card border border-border">
+              <p className="text-3xl font-bold text-orange-600 dark:text-orange-400 tracking-tighter">10+ Projects</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Built & Deployed</p>
             </div>
-            <div className="bg-card border border-border p-4 rounded-2xl">
-              <p className="text-orange-600 dark:text-orange-400 font-bold text-2xl">MERN</p>
-              <p className="text-muted-foreground text-xs uppercase tracking-widest font-bold">Core Speciality</p>
+            <div className="p-6 rounded-2xl bg-card border border-border">
+              <p className="text-3xl font-bold text-orange-600 dark:text-orange-400 tracking-tighter">MERN</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Core Stack</p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* --- LOGO MARQUEE --- */}
-        <div className="relative mb-24 overflow-hidden py-10">
+        <div className="relative mb-24 overflow-hidden py-10 opacity-60 hover:opacity-100 transition-opacity duration-700">
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background z-10"></div>
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background z-10"></div>
           <Marquee pauseOnHover className="[--duration:40s]">
@@ -119,118 +108,105 @@ export default function SkillsPage() {
                 <img
                   src={`https://cdn.simpleicons.org/${logo}`}
                   alt={logo}
-                  className="h-10 w-10 object-contain dark:brightness-0 dark:invert opacity-40 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0"
+                  className="h-10 w-10 object-contain dark:brightness-0 dark:invert grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>
             ))}
           </Marquee>
         </div>
 
-        {/* --- INTERACTIVE FILTER --- */}
-        <div className="flex flex-wrap gap-2 mb-12 justify-center md:justify-start">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveTab(cat.id)}
-              className={`
-                flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border
-                ${activeTab === cat.id 
-                  ? "bg-orange-600 dark:bg-orange-500 border-orange-600 dark:border-orange-500 text-white dark:text-black shadow-[0_0_20px_rgba(6,182,212,0.4)]" 
-                  : "bg-secondary border-border text-muted-foreground hover:border-orange-500/50 hover:text-foreground"
-                }
-              `}
-            >
-              {cat.icon}
-              {cat.label}
-            </button>
-          ))}
+        {/* --- TOOLS & FILTERS --- */}
+        <div className="flex flex-col md:flex-row gap-6 mb-12 items-center justify-between">
+          <div className="flex flex-wrap gap-2 w-full md:w-auto">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
+                className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all border ${
+                  activeTab === cat.id 
+                  ? "bg-orange-600 dark:bg-orange-500 border-orange-600 dark:border-orange-500 text-white dark:text-black shadow-lg" 
+                  : "bg-card border-border text-muted-foreground hover:border-orange-500/50 hover:text-foreground"
+                }`}
+              >
+                {cat.icon}
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="relative w-full md:w-[300px]">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+            <Input 
+              placeholder="Filter skills..." 
+              className="pl-10 bg-secondary/50 border-border focus:ring-orange-500/20"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
         </div>
 
         {/* --- SKILLS GRID --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <AnimatePresence mode="popLayout">
             {filteredSkills.map((skill, index) => (
               <motion.div
                 layout
                 key={skill.name}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2, delay: index * 0.05 }}
+                className="group p-6 rounded-2xl bg-card border border-border hover:border-orange-500/40 transition-all duration-300"
               >
-                <Card className={`group relative h-full bg-card border-border overflow-hidden transition-all duration-300 hover:border-orange-500/50 ${skill.top ? "ring-1 ring-orange-500/20" : ""}`}>
-                  <CardContent className="p-5">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className={`p-2 rounded-lg bg-secondary group-hover:bg-orange-500/10 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors`}>
-                        {skill.cat === "frontend" && <Code2 className="size-5" />}
-                        {skill.cat === "backend" && <Terminal className="size-5" />}
-                        {skill.cat === "database" && <Database className="size-5" />}
-                        {skill.cat === "ai" && <Cpu className="size-5" />}
-                        {skill.cat === "devops" && <ShieldCheck className="size-5" />}
-                      </div>
-                      {skill.top && (
-                        <Badge className="bg-orange-600 dark:bg-orange-500 text-white dark:text-black font-bold text-[10px] py-0 px-2 uppercase tracking-tighter">
-                          Top Choice
-                        </Badge>
-                      )}
-                    </div>
-                    
-                    <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors">
-                      {skill.name}
-                    </h3>
-                    
-                    <div className="flex items-center gap-2">
-                      <div className="flex-1 h-1 bg-secondary rounded-full overflow-hidden">
-                        <div 
-                          className={`h-full bg-orange-600 dark:bg-orange-500 transition-all duration-1000 ${
-                            skill.level === "Expert" ? "w-full" : 
-                            skill.level === "Advanced" ? "w-[85%]" : 
-                            skill.level === "Intermediate" ? "w-[60%]" : "w-[30%]"
-                          }`}
-                        />
-                      </div>
-                      <span className="text-[10px] font-mono text-muted-foreground uppercase font-bold">
-                        {skill.level}
-                      </span>
-                    </div>
-
-                    <div className="mt-4 pt-4 border-t border-border flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="text-[10px] text-muted-foreground italic">Used in 5+ projects</span>
-                      <ArrowUpRight className="size-3 text-orange-600 dark:text-orange-400" />
-                    </div>
-                  </CardContent>
-                </Card>
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                    {skill.name}
+                  </h3>
+                  <CheckCircle2 className="size-4 text-orange-600 dark:text-orange-400 opacity-20 group-hover:opacity-100 transition-opacity" />
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                    <span>{skill.level}</span>
+                    <span>{skill.score}%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-secondary rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      animate={{ width: `${skill.score}%` }}
+                      transition={{ duration: 1, delay: 0.2 }}
+                      className="h-full bg-orange-600 dark:bg-orange-500"
+                    />
+                  </div>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
 
-        {/* --- LEARNING PATH --- */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-32 p-8 rounded-[2.5rem] bg-gradient-to-br from-orange-500/10 via-transparent to-transparent border border-border text-center"
-        >
-          <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-orange-500/20 text-orange-600 dark:text-orange-400 mb-6">
-            <Search className="size-8" />
+        {/* --- LEARNING ROADMAP --- */}
+        <div className="mt-24 p-8 md:p-12 rounded-[2.5rem] bg-card border border-border relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 blur-[80px] -z-10"></div>
+          <div className="max-w-2xl">
+            <Badge className="mb-4 bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20 px-3 py-1">
+              On the Horizon
+            </Badge>
+            <h2 className="text-3xl font-bold mb-4">Currently Mastering</h2>
+            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+              Technology moves fast. I am currently deepening my expertise in systems 
+              architecture and high-concurrency patterns to build even more robust solutions.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {["System Design", "Kubernetes", "WebRTC", "Go Lang"].map(t => (
+                <span key={t} className="px-6 py-2.5 rounded-xl bg-secondary border border-border text-foreground font-bold text-xs uppercase tracking-widest">
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
-          <h2 className="text-3xl font-bold mb-4">Currently Mastering</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-lg">
-            I believe technology never stops evolving. Here is what I am 
-            currently diving deep into:
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {["System Design", "Kubernetes", "WebRTC", "Go Lang"].map(t => (
-              <span key={t} className="px-6 py-2 rounded-xl bg-secondary border border-border text-foreground font-medium">
-                {t}
-              </span>
-            ))}
-          </div>
-        </motion.div>
+        </div>
 
       </div>
     </main>
   );
 }
-
