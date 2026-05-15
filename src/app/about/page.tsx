@@ -1,212 +1,116 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
 import { 
-  Code2, 
-  Server, 
-  Database, 
-  Globe, 
-  Cpu, 
-  Layers, 
-  Sparkles,
-  ChevronRight
+  Calendar
 } from "lucide-react";
+import { SquigglyText } from "@/components/ui/squiggly-text";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background pt-24 pb-12 px-4 sm:px-6">
+    <div className="min-h-screen bg-background pt-32 pb-20 px-4 sm:px-6">
       
       {/* ================= HERO / INTRO SECTION ================= */}
-      <div className="max-w-6xl mx-auto mb-20">
-        <div className="flex flex-col lg:flex-row gap-12 items-start">
-          {/* Profile Image Column */}
-          <div className="w-full lg:w-1/3 flex flex-col items-center">
-            <div className="relative group">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-orange-600 to-orange-400 opacity-75 blur-md group-hover:opacity-100 transition duration-500"></div>
-              <div className="relative overflow-hidden rounded-2xl border-2 border-background bg-muted shadow-xl aspect-square w-full max-w-[350px]">
-                <Image
-                  src="/Rishabh_dubey_img.jpeg"
-                  alt="Rishabh Dubey profile photo"
-                  fill
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                  priority
-                />
-              </div>
-            </div>
-            
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
-               <span className="px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 text-xs font-bold">
-                 Developer
-               </span>
-               <span className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-400 text-xs font-bold">
-                 Designer
-               </span>
-               <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
-                 Innovator
-               </span>
-            </div>
-          </div>
-
+      <div className="max-w-3xl mx-auto mb-24">
+        <div className="flex flex-col gap-12">
           {/* Text Content Column */}
           <div className="flex-1">
-            <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 tracking-tight">
-              About <span className="text-orange-600 dark:text-orange-400">Me</span>
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-10 tracking-tighter">
+              <SquigglyText>
+                Crafting <span className="text-orange-600 dark:text-orange-400">scalable</span> digital experiences.
+              </SquigglyText>
             </h1>
             
-            <div className="space-y-2 mb-10">
-              <h2 className="text-xl md:text-2xl font-semibold text-orange-600 dark:text-orange-300">
-                Full Stack Developer | Building scalable web apps with MERN & Next.js
-              </h2>
-              <p className="text-lg text-foreground/80 font-medium">
-                I turn ideas into fast, scalable, and production-ready web applications 🚀
+            <div className="prose prose-lg dark:prose-invert max-w-none space-y-8 text-muted-foreground leading-relaxed text-xl">
+              <p className="text-foreground font-medium leading-snug">
+                I&apos;m Rishabh Dubey, a Full Stack Developer specializing in the MERN stack and Next.js. 
+                I focus on building production-ready applications that solve real-world problems.
               </p>
-              <p className="text-muted-foreground">
-                Helping startups and businesses build modern, high-performance web solutions
+              <p>
+                Currently pursuing my B.Tech in Computer Science, I bridge the gap between academic theory 
+                and industry-standard software engineering. My approach is centered on clean architecture, 
+                type safety, and user-centric design.
+              </p>
+              <p>
+                From developing AI-integrated platforms to secure authentication systems, I enjoy the 
+                challenge of turning complex requirements into elegant, maintainable code. I&apos;m always 
+                looking for opportunities to collaborate on innovative projects and contribute to 
+                high-impact engineering teams.
               </p>
             </div>
 
-            <div className="prose prose-orange dark:prose-invert max-w-none space-y-6 text-foreground/80 text-lg leading-relaxed">
-              <p>
-                I’m a Full Stack Developer currently pursuing B.Tech in Computer Science at SAGE University Bhopal, 
-                specializing in building scalable and production-ready web applications using the MERN stack and Next.js. 
-                I have hands-on experience developing real-world projects including a ChatGPT-style AI application, 
-                secure authentication systems, and API-driven platforms with clean architecture.
-              </p>
-              <p>
-                I focus on writing efficient, maintainable code and delivering responsive, user-friendly interfaces. 
-                Beyond development, I have practical exposure to REST APIs, database design (MongoDB & MySQL), 
-                and basic DevOps practices like Docker and CI/CD.
-              </p>
-              <p>
-                I’m actively seeking opportunities where I can contribute to real-world products, 
-                solve meaningful problems, and deliver high-quality solutions — whether as a developer 
-                in a growing team or by helping clients build fast, scalable web applications.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ================= JOURNEY SECTION ================= */}
-      <div className="mt-16 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-foreground mb-8 border-l-4 border-orange-500 dark:border-orange-400 pl-4">My Journey as a Student & Developer</h2>
-
-        <div className="relative border-l border-border ml-3 pl-8 space-y-12">
-          
-          {/* Milestone 1 */}
-          <div className="relative">
-            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-orange-600 dark:bg-orange-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
-            <h3 className="text-orange-600 dark:text-orange-300 font-bold text-xl mb-2">The Spark (2023)</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              My journey began when I joined <span className="text-foreground font-medium">SAGE University, Bhopal</span> for my B.Tech in CSE. 
-              Like many, I started with curiosity about how the internet works. What began as writing simple &quot;Hello World&quot; 
-              programs in C and Java quickly evolved into a fascination with the web&apos;s infinite possibilities.
-            </p>
-          </div>
-
-          {/* Milestone 2 */}
-          <div className="relative">
-            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-secondary border-2 border-orange-600 dark:border-orange-500"></div>
-            <h3 className="text-orange-600 dark:text-orange-300 font-bold text-xl mb-2">Diving into the MERN Stack</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              I realized that to build real impact, I needed to master the full cycle of development. 
-              I dedicated months to learning the <span className="text-foreground font-medium">MERN stack (MongoDB, Express, React, Node)</span>. 
-              The transition from static pages to building dynamic, data-driven applications was a turning point. 
-              I started focusing on how to make applications not just functional, but scalable and secure.
-            </p>
-          </div>
-
-          {/* Milestone 3 */}
-          <div className="relative">
-            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-secondary border-2 border-orange-600 dark:border-orange-500"></div>
-            <h3 className="text-orange-600 dark:text-orange-300 font-bold text-xl mb-2">Building Real-World Impact</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              I moved beyond tutorials to build production-ready projects. Developing a 
-              <span className="text-foreground font-medium"> ChatGPT-style AI application</span> taught me how to integrate complex APIs and 
-              manage state effectively. Working on secure authentication systems and API-driven platforms 
-              helped me understand the importance of <span className="text-foreground font-medium">Clean Architecture</span> and 
-              user security in the modern web.
-            </p>
-          </div>
-
-          {/* Milestone 4 */}
-          <div className="relative">
-            <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-secondary border-2 border-orange-600 dark:border-orange-500"></div>
-            <h3 className="text-orange-600 dark:text-orange-300 font-bold text-xl mb-2">Present & Beyond</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Today, I am bridging the gap between academic excellence and industry standards. 
-              I am deepening my expertise in <span className="text-foreground font-medium">Next.js</span> and exploring the 
-              intersection of <span className="text-foreground font-medium">Artificial Intelligence and Web Development</span>. 
-              My goal is to solve meaningful problems and deliver high-quality solutions for clients and users worldwide.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-      {/* ================= TECHNICAL ARSENAL (AI-INSPIRED) ================= */}
-      <div className="mt-32 max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/5 border border-orange-500/10 text-orange-600 dark:text-orange-400 text-xs font-bold mb-4">
-            <Sparkles className="size-3 animate-pulse" />
-            <span>Technical Capabilities</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-            Technical <span className="text-orange-600 dark:text-orange-400">Arsenal</span>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A structured collection of technologies I leverage to build 
-            intelligent, high-performance digital solutions.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <SkillCategory 
-            title="Frontend Development"
-            icon={<Code2 className="size-5" />}
-            skills={["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Redux"]}
-          />
-          <SkillCategory 
-            title="Backend Engineering"
-            icon={<Server className="size-5" />}
-            skills={["Node.js", "Express", "Java", "Python", "REST APIs", "Socket.io"]}
-          />
-          <SkillCategory 
-            title="Intelligence & Data"
-            icon={<Cpu className="size-5" />}
-            skills={["OpenAI", "LangChain", "Vector DBs", "MongoDB", "PostgreSQL"]}
-          />
-          <SkillCategory 
-            title="Tools & DevOps"
-            icon={<Layers className="size-5" />}
-            skills={["Git/GitHub", "Docker", "Vercel", "AWS", "CI/CD", "Postman"]}
-          />
-        </div>
-      </div>
-
-      {/* ================= EDUCATION SECTION ================= */}
-      <div className="mt-32 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-foreground mb-10 text-center">
-          Education 🎓
-        </h2>
-
-        <div className="max-w-3xl mx-auto">
-          <div className="p-8 rounded-2xl border border-border bg-card relative overflow-hidden group hover:bg-accent/50 transition-all duration-500">
-            <div className="absolute top-0 left-0 w-1.5 h-full bg-orange-600 dark:bg-orange-500 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-              <div>
-                <h3 className="text-orange-600 dark:text-orange-300 font-bold text-2xl mb-1">
-                  Bachelor of Technology
-                </h3>
-                <p className="text-muted-foreground font-medium">Computer Science Engineering</p>
+            <div className="mt-12 flex flex-wrap gap-4">
+              <div className="px-5 py-2.5 rounded-full border border-border bg-card text-xs font-bold tracking-widest uppercase">
+                Frontend
               </div>
-              <div className="px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 text-sm font-bold">
-                2023 — 2027
+              <div className="px-5 py-2.5 rounded-full border border-border bg-card text-xs font-bold tracking-widest uppercase">
+                Backend
+              </div>
+              <div className="px-5 py-2.5 rounded-full border border-border bg-card text-xs font-bold tracking-widest uppercase">
+                AI/LLMs
               </div>
             </div>
-            
-            <p className="text-foreground/90 text-lg mb-4 font-medium">SAGE University, Bhopal</p>
-            <p className="text-muted-foreground leading-relaxed italic">
-              &quot;Focused on mastering full stack development and exploring the intersection of AI with modern web technologies.&quot;
+          </div>
+        </div>
+      </div>
+
+      {/* ================= TECHNICAL ARSENAL ================= */}
+      <div className="max-w-5xl mx-auto mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <SkillGroup 
+            title="Frontend"
+            skills={["React", "Next.js", "TypeScript", "Tailwind", "Framer Motion"]}
+          />
+          <SkillGroup 
+            title="Backend"
+            skills={["Node.js", "Express", "REST APIs", "PostgreSQL", "MongoDB"]}
+          />
+          <SkillGroup 
+            title="Intelligence"
+            skills={["OpenAI API", "LangChain", "Vector DBs", "RAG Patterns"]}
+          />
+          <SkillGroup 
+            title="DevOps & Tools"
+            skills={["Docker", "Git", "Vercel", "Postman", "Linux"]}
+          />
+        </div>
+      </div>
+
+      {/* ================= JOURNEY & EDUCATION ================= */}
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div>
+          <h2 className="text-2xl font-bold mb-10 tracking-tight">Experience & Journey</h2>
+          <div className="space-y-12">
+            <TimelineItem 
+              year="2024"
+              title="Building Production Apps"
+              description="Focused on end-to-end applications including AI-driven platforms and secure SaaS architectures."
+            />
+            <TimelineItem 
+              year="2023"
+              title="MERN Specialization"
+              description="Deep dive into full-stack development, mastering asynchronous patterns and database design."
+            />
+            <TimelineItem 
+              year="2022"
+              title="Foundations"
+              description="Started B.Tech CSE, building solid fundamentals in C, Java, and computer science theory."
+            />
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-2xl font-bold mb-10 tracking-tight">Education</h2>
+          <div className="p-8 rounded-2xl border border-border bg-card/50">
+            <div className="flex items-center gap-3 mb-4 text-orange-600 dark:text-orange-400">
+              <Calendar className="size-5" />
+              <span className="font-bold tracking-wider text-sm">2023 — 2027</span>
+            </div>
+            <h3 className="text-xl font-bold mb-2">B.Tech in Computer Science</h3>
+            <p className="text-foreground/80 mb-4">SAGE University, Bhopal</p>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Specializing in Software Engineering and Artificial Intelligence. 
+              Consistently applying academic concepts to real-world development projects.
             </p>
           </div>
         </div>
@@ -215,33 +119,29 @@ export default function AboutPage() {
   );
 }
 
-/* 🔥 Minimalist & AI-Inspired Skill Category */
-function SkillCategory({ 
-  title, 
-  skills, 
-  icon 
-}: { 
-  title: string; 
-  skills: string[]; 
-  icon: React.ReactNode;
-}) {
+function SkillGroup({ title, skills }: { title: string; skills: string[] }) {
   return (
-    <div className="p-6 rounded-2xl border border-border bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-orange-500/30 hover:bg-accent/5">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400">
-          {icon}
-        </div>
-        <h3 className="text-lg font-bold text-foreground tracking-tight">{title}</h3>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {skills.map((skill) => (
-          <span 
-            key={skill}
-            className="px-3 py-1.5 text-xs font-medium rounded-lg bg-secondary/50 border border-border text-muted-foreground hover:border-orange-500/20 hover:text-foreground transition-all"
-          >
+    <div className="space-y-4">
+      <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground">{title}</h3>
+      <ul className="space-y-2">
+        {skills.map(skill => (
+          <li key={skill} className="text-foreground/80 flex items-center gap-2 group">
+            <div className="size-1 rounded-full bg-orange-600 transition-all group-hover:scale-150" />
             {skill}
-          </span>
+          </li>
         ))}
+      </ul>
+    </div>
+  );
+}
+
+function TimelineItem({ year, title, description }: { year: string; title: string; description: string }) {
+  return (
+    <div className="flex gap-6 group">
+      <div className="text-sm font-bold text-muted-foreground pt-1.5 w-12 shrink-0">{year}</div>
+      <div className="space-y-2">
+        <h3 className="text-lg font-bold group-hover:text-orange-600 transition-colors">{title}</h3>
+        <p className="text-muted-foreground leading-relaxed">{description}</p>
       </div>
     </div>
   );
