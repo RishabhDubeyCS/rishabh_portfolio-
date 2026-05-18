@@ -17,7 +17,7 @@ export default function AboutPage() {
           <div className="flex-1">
             <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-10 tracking-tighter">
               <SquigglyText>
-                Crafting <span className="text-orange-600 dark:text-orange-400">scalable</span> digital experiences.
+                Crafting <span className="text-orange-600 dark:text-orange-400">scalable</span> digital experiences
               </SquigglyText>
             </h1>
             
