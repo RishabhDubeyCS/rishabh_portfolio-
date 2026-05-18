@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ReactLenis } from "lenis/react";
 import { Chatbot } from "@/components/ai-chatbot";
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
             {children}
             <Footer />
             <Chatbot />
+            <SmoothCursor />
           </ReactLenis>
         </ThemeProvider>
       </body>

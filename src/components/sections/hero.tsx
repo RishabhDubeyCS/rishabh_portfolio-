@@ -31,34 +31,34 @@ export default function Hero() {
         {/* Text Content */}
         <div className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
           {/* Heading */}
-          <h1 className="bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-4xl font-bold text-transparent md:text-7xl">
-            Hi, I&apos;m Rishabh Dubey 
+          <h1 className="bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-4xl font-bold leading-tight text-transparent sm:text-5xl md:text-7xl">
+            Hi, I&apos;m <span className="text-foreground">Rishabh Dubey</span> 
           </h1>
 
           {/* Subheading */}
-          <h2 className="mt-4 text-lg font-medium text-orange-600 dark:text-orange-400 md:text-2xl">
+          <h2 className="mt-4 text-lg font-medium text-orange-600 dark:text-orange-400 sm:text-xl md:text-2xl">
             Full Stack Developer & AI-Driven Applications
           </h2>
 
           {/* Description */}
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground/80 md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground/80 sm:text-lg">
             Building intelligent products at the intersection of Full Stack Development
             and Artificial Intelligence. I design and develop scalable applications that
             leverage AI to enhance user experience, automate workflows, and deliver real-world impact.
           </p>
 
           {/* Buttons */}
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row justify-center md:justify-start">
+          <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row justify-center md:justify-start">
             <Link
               href="/projects"
-              className="rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-all transform hover:scale-105"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-all transform hover:scale-[1.02] active:scale-95"
             >
               View Projects
             </Link>
 
             <Link
               href="#contact"
-              className="rounded-lg border border-input bg-background px-8 py-3 text-sm font-semibold text-foreground hover:bg-accent hover:text-accent-foreground transition-all transform hover:scale-105"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-input bg-background px-8 text-sm font-semibold text-foreground hover:bg-accent hover:text-accent-foreground transition-all transform hover:scale-[1.02] active:scale-95"
             >
               Contact Me
             </Link>
@@ -66,7 +66,7 @@ export default function Hero() {
             <a
               href="/resume.pdf"
               download="Rishabh_Dubey_Resume.pdf"
-              className="flex items-center justify-center gap-2 rounded-lg bg-orange-500/10 border border-orange-500/30 px-8 py-3 text-sm font-semibold text-orange-600 dark:text-orange-400 hover:bg-orange-500/20 transition-all transform hover:scale-105"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-orange-500/10 border border-orange-500/30 px-8 text-sm font-semibold text-orange-600 dark:text-orange-400 hover:bg-orange-500/20 transition-all transform hover:scale-[1.02] active:scale-95"
             >
               <Download className="size-4" />
               Resume

@@ -70,12 +70,12 @@ export default function Contact() {
       <div className="absolute inset-0 dark:[background-image:linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] [background-image:linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] [background-size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
       
       <div className="max-w-4xl mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
           >
             Get In <span className="text-orange-600 dark:text-orange-400">Touch</span>
           </motion.h2>
@@ -83,7 +83,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-muted-foreground text-lg"
+            className="text-muted-foreground text-base sm:text-lg"
           >
             Have a project in mind? Let&apos;s build something amazing together.
           </motion.p>
@@ -93,7 +93,7 @@ export default function Contact() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="bg-card/50 backdrop-blur-sm border border-border p-8 rounded-2xl shadow-2xl"
+          className="bg-card/50 backdrop-blur-sm border border-border p-5 sm:p-8 rounded-2xl shadow-2xl"
         >
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             {/* Hidden field for EmailJS recipient with guaranteed fallback */}

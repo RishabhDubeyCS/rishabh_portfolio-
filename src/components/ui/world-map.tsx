@@ -54,12 +54,12 @@ export default function WorldMap({
 
   if (!mounted) {
     return (
-      <div className="w-full aspect-[2/1] dark:bg-black bg-white rounded-lg relative font-sans" />
+      <div className="w-full aspect-[2/1] sm:aspect-[2/1] h-[300px] sm:h-auto dark:bg-black bg-white rounded-lg relative font-sans" />
     );
   }
 
   return (
-    <div className="w-full aspect-[2/1] dark:bg-black bg-white rounded-lg  relative font-sans">
+    <div className="w-full aspect-[1.5/1] sm:aspect-[2/1] h-[350px] sm:h-auto dark:bg-black bg-white rounded-lg relative font-sans overflow-hidden">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}

@@ -11,17 +11,17 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background pt-32 pb-20 px-4 sm:px-6">
       
       {/* ================= HERO / INTRO SECTION ================= */}
-      <div className="max-w-3xl mx-auto mb-24">
-        <div className="flex flex-col gap-12">
+      <div className="max-w-3xl mx-auto mb-16 sm:mb-24">
+        <div className="flex flex-col gap-8 sm:gap-12">
           {/* Text Content Column */}
           <div className="flex-1">
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-10 tracking-tighter">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground mb-6 sm:mb-10 tracking-tighter leading-[1.1]">
               <SquigglyText>
                 Crafting <span className="text-orange-600 dark:text-orange-400">scalable</span> digital experiences
               </SquigglyText>
             </h1>
             
-            <div className="prose prose-lg dark:prose-invert max-w-none space-y-8 text-muted-foreground leading-relaxed text-xl">
+            <div className="prose prose-lg dark:prose-invert max-w-none space-y-6 sm:space-y-8 text-muted-foreground leading-relaxed text-lg sm:text-xl">
               <p className="text-foreground font-medium leading-snug">
                 I&apos;m Rishabh Dubey, a Full Stack Developer specializing in the MERN stack and Next.js. 
                 I focus on building production-ready applications that solve real-world problems.
@@ -55,8 +55,8 @@ export default function AboutPage() {
       </div>
 
       {/* ================= TECHNICAL ARSENAL ================= */}
-      <div className="max-w-5xl mx-auto mb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-5xl mx-auto mb-20 sm:mb-32">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           <SkillGroup 
             title="Frontend"
             skills={["React", "Next.js", "TypeScript", "Tailwind", "Framer Motion"]}
@@ -77,10 +77,10 @@ export default function AboutPage() {
       </div>
 
       {/* ================= JOURNEY & EDUCATION ================= */}
-      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 sm:gap-20">
         <div>
-          <h2 className="text-2xl font-bold mb-10 tracking-tight">Learning Journey</h2>
-          <div className="space-y-12">
+          <h2 className="text-2xl font-bold mb-8 sm:mb-10 tracking-tight">Learning Journey</h2>
+          <div className="space-y-10 sm:space-y-12">
             <TimelineItem 
               year="2024"
               title="Advanced Project Development"

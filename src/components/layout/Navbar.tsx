@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/mode-toggle";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -46,7 +46,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <ModeToggle />
+          <AnimatedThemeToggler className="inline-flex size-10 items-center justify-center rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 text-black dark:text-white transition hover:bg-black/10 dark:hover:bg-white/10" />
           
           {/* Resume Button (Desktop) */}
           <Button

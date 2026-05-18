@@ -17,19 +17,19 @@ export default function Projects() {
       <div className="mx-auto max-w-7xl relative z-10">
         
         {/* Heading */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-14 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
               Featured <span className="text-orange-600 dark:text-orange-400">Projects</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base sm:text-lg text-muted-foreground">
               A showcase of my recent work, ranging from full-stack applications 
               to specialized AI integrations and architectural experiments.
             </p>
           </div>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary/50 border border-border text-foreground font-bold hover:bg-secondary transition-all group"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 py-3 rounded-xl bg-secondary/50 border border-border text-foreground font-bold hover:bg-secondary transition-all group"
           >
             View All Projects
             <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
@@ -37,7 +37,7 @@ export default function Projects() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {featuredProjects.map((project) => (
             <div
               key={project.slug}
